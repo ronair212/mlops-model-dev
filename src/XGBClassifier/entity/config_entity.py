@@ -20,4 +20,11 @@ class PrepareBaseModelConfig:
     params_max_depth: int
     
     
-    
+@dataclass(frozen=True)
+class TrainingConfig:
+    scoring: str
+    cv: int
+    training_data: Path
+    model_save_filepath: Path
+
+

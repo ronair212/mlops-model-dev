@@ -230,3 +230,706 @@ x==========x]
 [2024-06-22 17:12:39,503: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model completed <<<<<<
 
 x==========x]
+[2024-06-22 18:10:04,182: INFO: stage_03_training_cross_val: *******************]
+[2024-06-22 18:10:04,182: INFO: stage_03_training_cross_val: >>>>>> stage Training started <<<<<<]
+[2024-06-22 18:10:04,184: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:10:04,186: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:10:04,187: INFO: common: created directory at: artifacts]
+[2024-06-22 18:10:04,188: ERROR: stage_03_training_cross_val: "'ConfigBox' object has no attribute 'local_data_file'"]
+Traceback (most recent call last):
+  File "box/box.py", line 503, in box.box.Box.__getitem__
+KeyError: 'local_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 536, in box.box.Box.__getattr__
+  File "box/box.py", line 524, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'local_data_file'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 538, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'local_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/config_box.py", line 28, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 552, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'local_data_file'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 503, in box.box.Box.__getitem__
+KeyError: 'local_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 536, in box.box.Box.__getattr__
+  File "box/box.py", line 524, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'local_data_file'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 538, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'local_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 30, in <module>
+    obj.main()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 16, in main
+    training_config = config.get_training_config()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/config_mngr/configuration_manager.py", line 60, in get_training_config
+    training_data = self.config.local_data_file
+  File "box/config_box.py", line 30, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 552, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'local_data_file'"
+[2024-06-22 18:10:09,490: INFO: stage_03_training_cross_val: *******************]
+[2024-06-22 18:10:09,490: INFO: stage_03_training_cross_val: >>>>>> stage Training started <<<<<<]
+[2024-06-22 18:10:09,492: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:10:09,494: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:10:09,495: INFO: common: created directory at: artifacts]
+[2024-06-22 18:10:09,496: ERROR: stage_03_training_cross_val: "'ConfigBox' object has no attribute 'local_data_file'"]
+Traceback (most recent call last):
+  File "box/box.py", line 503, in box.box.Box.__getitem__
+KeyError: 'local_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 536, in box.box.Box.__getattr__
+  File "box/box.py", line 524, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'local_data_file'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 538, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'local_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/config_box.py", line 28, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 552, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'local_data_file'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 503, in box.box.Box.__getitem__
+KeyError: 'local_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 536, in box.box.Box.__getattr__
+  File "box/box.py", line 524, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'local_data_file'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 538, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'local_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 30, in <module>
+    obj.main()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 16, in main
+    training_config = config.get_training_config()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/config_mngr/configuration_manager.py", line 60, in get_training_config
+    training_data = self.config.local_data_file
+  File "box/config_box.py", line 30, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 552, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'local_data_file'"
+[2024-06-22 18:16:28,160: INFO: stage_03_training_cross_val: *******************]
+[2024-06-22 18:16:28,160: INFO: stage_03_training_cross_val: >>>>>> stage Training started <<<<<<]
+[2024-06-22 18:16:28,169: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:16:28,172: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:16:28,173: INFO: common: created directory at: artifacts]
+[2024-06-22 18:16:28,173: ERROR: stage_03_training_cross_val: "'ConfigBox' object has no attribute 'local_data_file'"]
+Traceback (most recent call last):
+  File "box/box.py", line 503, in box.box.Box.__getitem__
+KeyError: 'local_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 536, in box.box.Box.__getattr__
+  File "box/box.py", line 524, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'local_data_file'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 538, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'local_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/config_box.py", line 28, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 552, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'local_data_file'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 503, in box.box.Box.__getitem__
+KeyError: 'local_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 536, in box.box.Box.__getattr__
+  File "box/box.py", line 524, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'local_data_file'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 538, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'local_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 30, in <module>
+    obj.main()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 16, in main
+    training_config = config.get_training_config()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/config_mngr/configuration_manager.py", line 60, in get_training_config
+    training_data = self.config.local_data_file
+  File "box/config_box.py", line 30, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 552, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'local_data_file'"
+[2024-06-22 18:18:59,007: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 18:18:59,010: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:18:59,012: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:18:59,014: INFO: common: created directory at: artifacts]
+[2024-06-22 18:18:59,015: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 18:19:04,608: INFO: data_ingestion:  file from url https://drive.google.com/uc?/export=download&id=1RmDs2j3QcY05ixoV1-ACmxmnM5xdmiGF downloaded and saved at path artifacts/data_ingestion/card_transdata.csv]
+[2024-06-22 18:19:04,624: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 18:19:04,624: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 18:19:15,699: INFO: stage_02_prepare_base_model: *******************]
+[2024-06-22 18:19:15,700: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 18:19:15,702: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:19:15,707: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:19:15,709: INFO: common: created directory at: artifacts]
+[2024-06-22 18:19:15,710: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 18:19:15,710: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 18:19:15,710: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 18:19:23,864: INFO: stage_03_training_cross_val: *******************]
+[2024-06-22 18:19:23,865: INFO: stage_03_training_cross_val: >>>>>> stage Training started <<<<<<]
+[2024-06-22 18:19:23,867: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:19:23,873: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:19:23,875: INFO: common: created directory at: artifacts]
+[2024-06-22 18:19:23,876: ERROR: stage_03_training_cross_val: "'ConfigBox' object has no attribute 'local_data_file'"]
+Traceback (most recent call last):
+  File "box/box.py", line 503, in box.box.Box.__getitem__
+KeyError: 'local_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 536, in box.box.Box.__getattr__
+  File "box/box.py", line 524, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'local_data_file'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 538, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'local_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/config_box.py", line 28, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 552, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'local_data_file'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 503, in box.box.Box.__getitem__
+KeyError: 'local_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 536, in box.box.Box.__getattr__
+  File "box/box.py", line 524, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'local_data_file'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 538, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'local_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 30, in <module>
+    obj.main()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 16, in main
+    training_config = config.get_training_config()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/config_mngr/configuration_manager.py", line 60, in get_training_config
+    training_data = self.config.local_data_file
+  File "box/config_box.py", line 30, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 552, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'local_data_file'"
+[2024-06-22 18:20:21,914: INFO: stage_03_training_cross_val: *******************]
+[2024-06-22 18:20:21,914: INFO: stage_03_training_cross_val: >>>>>> stage Training started <<<<<<]
+[2024-06-22 18:20:21,917: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:20:21,920: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:20:21,921: INFO: common: created directory at: artifacts]
+[2024-06-22 18:20:21,921: ERROR: stage_03_training_cross_val: "'ConfigBox' object has no attribute 'local_data_file'"]
+Traceback (most recent call last):
+  File "box/box.py", line 503, in box.box.Box.__getitem__
+KeyError: 'local_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 536, in box.box.Box.__getattr__
+  File "box/box.py", line 524, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'local_data_file'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 538, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'local_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/config_box.py", line 28, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 552, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'local_data_file'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 503, in box.box.Box.__getitem__
+KeyError: 'local_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 536, in box.box.Box.__getattr__
+  File "box/box.py", line 524, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'local_data_file'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 538, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'local_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 30, in <module>
+    obj.main()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 16, in main
+    training_config = config.get_training_config()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/config_mngr/configuration_manager.py", line 60, in get_training_config
+    training_data = self.config.local_data_file
+  File "box/config_box.py", line 30, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 552, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'local_data_file'"
+[2024-06-22 18:22:52,234: INFO: stage_03_training_cross_val: *******************]
+[2024-06-22 18:22:52,235: INFO: stage_03_training_cross_val: >>>>>> stage Training started <<<<<<]
+[2024-06-22 18:22:52,238: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:22:52,242: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:22:52,243: INFO: common: created directory at: artifacts]
+[2024-06-22 18:22:52,246: INFO: common: created directory at: artifacts/training]
+[2024-06-22 18:22:52,247: ERROR: stage_03_training_cross_val: TrainingConfig.__init__() got an unexpected keyword argument 'params_scoring']
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 30, in <module>
+    obj.main()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 16, in main
+    training_config = config.get_training_config()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/config_mngr/configuration_manager.py", line 65, in get_training_config
+    training_config = TrainingConfig(
+TypeError: TrainingConfig.__init__() got an unexpected keyword argument 'params_scoring'
+[2024-06-22 18:22:57,488: INFO: stage_03_training_cross_val: *******************]
+[2024-06-22 18:22:57,489: INFO: stage_03_training_cross_val: >>>>>> stage Training started <<<<<<]
+[2024-06-22 18:22:57,491: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:22:57,493: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:22:57,493: INFO: common: created directory at: artifacts]
+[2024-06-22 18:22:57,496: INFO: common: created directory at: artifacts/training]
+[2024-06-22 18:22:57,496: ERROR: stage_03_training_cross_val: TrainingConfig.__init__() got an unexpected keyword argument 'params_scoring']
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 30, in <module>
+    obj.main()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 16, in main
+    training_config = config.get_training_config()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/config_mngr/configuration_manager.py", line 65, in get_training_config
+    training_config = TrainingConfig(
+TypeError: TrainingConfig.__init__() got an unexpected keyword argument 'params_scoring'
+[2024-06-22 18:23:50,914: INFO: stage_03_training_cross_val: *******************]
+[2024-06-22 18:23:50,915: INFO: stage_03_training_cross_val: >>>>>> stage Training started <<<<<<]
+[2024-06-22 18:23:50,921: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:23:50,926: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:23:50,927: INFO: common: created directory at: artifacts]
+[2024-06-22 18:23:50,929: INFO: common: created directory at: artifacts/training]
+[2024-06-22 18:23:50,929: ERROR: stage_03_training_cross_val: TrainingConfig.__init__() got an unexpected keyword argument 'params_cv']
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 30, in <module>
+    obj.main()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 16, in main
+    training_config = config.get_training_config()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/config_mngr/configuration_manager.py", line 65, in get_training_config
+    training_config = TrainingConfig(
+TypeError: TrainingConfig.__init__() got an unexpected keyword argument 'params_cv'
+[2024-06-22 18:26:05,550: INFO: stage_03_training_cross_val: *******************]
+[2024-06-22 18:26:05,551: INFO: stage_03_training_cross_val: >>>>>> stage Training started <<<<<<]
+[2024-06-22 18:26:05,557: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:26:05,561: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:26:05,562: INFO: common: created directory at: artifacts]
+[2024-06-22 18:26:05,564: INFO: common: created directory at: artifacts/training]
+[2024-06-22 18:26:05,565: ERROR: stage_03_training_cross_val: name 'xgb' is not defined]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 30, in <module>
+    obj.main()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 19, in main
+    training.train(xgb)
+NameError: name 'xgb' is not defined
+[2024-06-22 18:27:29,952: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 18:27:29,957: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:27:29,966: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:27:29,967: INFO: common: created directory at: artifacts]
+[2024-06-22 18:27:29,972: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 18:27:29,974: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-22 18:27:29,979: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 18:27:29,979: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 18:27:29,980: INFO: main: *******************]
+[2024-06-22 18:27:29,980: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 18:27:29,981: ERROR: main: name 'PrepareBaseModelTrainingPipeline' is not defined]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 23, in <module>
+    prepare_base_model = PrepareBaseModelTrainingPipeline()
+NameError: name 'PrepareBaseModelTrainingPipeline' is not defined
+[2024-06-22 18:27:40,726: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 18:27:40,732: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:27:40,736: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:27:40,740: INFO: common: created directory at: artifacts]
+[2024-06-22 18:27:40,742: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 18:27:40,743: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-22 18:27:40,747: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 18:27:40,747: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 18:27:40,748: INFO: main: *******************]
+[2024-06-22 18:27:40,748: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 18:27:40,748: ERROR: main: name 'PrepareBaseModelTrainingPipeline' is not defined]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 23, in <module>
+    prepare_base_model = PrepareBaseModelTrainingPipeline()
+NameError: name 'PrepareBaseModelTrainingPipeline' is not defined
+[2024-06-22 18:29:05,397: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 18:29:05,405: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:29:05,415: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:29:05,417: INFO: common: created directory at: artifacts]
+[2024-06-22 18:29:05,422: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 18:29:05,425: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-22 18:29:05,430: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 18:29:05,433: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 18:29:05,434: INFO: main: *******************]
+[2024-06-22 18:29:05,434: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 18:29:05,440: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:29:05,444: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:29:05,445: INFO: common: created directory at: artifacts]
+[2024-06-22 18:29:05,447: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 18:29:05,448: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 18:29:05,448: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 18:29:05,449: INFO: main: *******************]
+[2024-06-22 18:29:05,449: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-22 18:29:05,452: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:29:05,457: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:29:05,459: INFO: common: created directory at: artifacts]
+[2024-06-22 18:29:05,460: INFO: common: created directory at: artifacts/training]
+[2024-06-22 18:29:05,461: ERROR: main: name 'train_valid_generator' is not defined]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 38, in <module>
+    obj.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 19, in main
+    training.train(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 37, in train
+    X_train , X_test ,y_train , y_test  = train_valid_generator()
+NameError: name 'train_valid_generator' is not defined
+[2024-06-22 18:30:40,463: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 18:30:40,471: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:30:40,477: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:30:40,480: INFO: common: created directory at: artifacts]
+[2024-06-22 18:30:40,482: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 18:30:40,485: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-22 18:30:40,489: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 18:30:40,489: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 18:30:40,490: INFO: main: *******************]
+[2024-06-22 18:30:40,490: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 18:30:40,493: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:30:40,496: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:30:40,497: INFO: common: created directory at: artifacts]
+[2024-06-22 18:30:40,499: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 18:30:40,500: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 18:30:40,500: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 18:30:40,500: INFO: main: *******************]
+[2024-06-22 18:30:40,500: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-22 18:30:40,503: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:30:40,507: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:30:40,510: INFO: common: created directory at: artifacts]
+[2024-06-22 18:30:40,512: INFO: common: created directory at: artifacts/training]
+[2024-06-22 18:30:40,513: ERROR: main: name 'pd' is not defined]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 38, in <module>
+    obj.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 19, in main
+    training.train(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 37, in train
+    X_train , X_test ,y_train , y_test  = self.train_valid_generator()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 12, in train_valid_generator
+    df = pd.read_csv(self.config.training_data,encoding='utf-8')
+NameError: name 'pd' is not defined
+[2024-06-22 18:31:05,232: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 18:31:05,237: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:31:05,241: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:31:05,242: INFO: common: created directory at: artifacts]
+[2024-06-22 18:31:05,243: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 18:31:05,244: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-22 18:31:05,245: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 18:31:05,246: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 18:31:05,246: INFO: main: *******************]
+[2024-06-22 18:31:05,246: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 18:31:05,250: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:31:05,252: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:31:05,254: INFO: common: created directory at: artifacts]
+[2024-06-22 18:31:05,255: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 18:31:05,255: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 18:31:05,256: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 18:31:05,256: INFO: main: *******************]
+[2024-06-22 18:31:05,256: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-22 18:31:05,259: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:31:05,263: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:31:05,263: INFO: common: created directory at: artifacts]
+[2024-06-22 18:31:05,264: INFO: common: created directory at: artifacts/training]
+[2024-06-22 18:31:06,260: ERROR: main: name 'train_test_split' is not defined]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 38, in <module>
+    obj.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 19, in main
+    training.train(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 37, in train
+    X_train , X_test ,y_train , y_test  = self.train_valid_generator()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 18, in train_valid_generator
+    X_train , X_test ,y_train , y_test = train_test_split(X,y,test_size = 0.2 ,random_state = 42 ,stratify=y)
+NameError: name 'train_test_split' is not defined
+[2024-06-22 18:31:39,666: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 18:31:39,669: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:31:39,670: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:31:39,672: INFO: common: created directory at: artifacts]
+[2024-06-22 18:31:39,673: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 18:31:39,673: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-22 18:31:39,675: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 18:31:39,675: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 18:31:39,675: INFO: main: *******************]
+[2024-06-22 18:31:39,676: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 18:31:39,679: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:31:39,681: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:31:39,682: INFO: common: created directory at: artifacts]
+[2024-06-22 18:31:39,687: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 18:31:39,687: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 18:31:39,687: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 18:31:39,688: INFO: main: *******************]
+[2024-06-22 18:31:39,688: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-22 18:31:39,691: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:31:39,693: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:31:39,694: INFO: common: created directory at: artifacts]
+[2024-06-22 18:31:39,695: INFO: common: created directory at: artifacts/training]
+[2024-06-22 18:31:41,008: ERROR: main: name 'logger' is not defined]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 38, in <module>
+    obj.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 19, in main
+    training.train(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 40, in train
+    logger.info(f"Model training and cross validation initiated.")
+NameError: name 'logger' is not defined
+[2024-06-22 18:32:37,411: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 18:32:37,414: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:32:37,416: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:32:37,417: INFO: common: created directory at: artifacts]
+[2024-06-22 18:32:37,418: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 18:32:37,419: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-22 18:32:37,420: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 18:32:37,420: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 18:32:37,420: INFO: main: *******************]
+[2024-06-22 18:32:37,420: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 18:32:37,422: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:32:37,424: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:32:37,425: INFO: common: created directory at: artifacts]
+[2024-06-22 18:32:37,426: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 18:32:37,426: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 18:32:37,426: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 18:32:37,426: INFO: main: *******************]
+[2024-06-22 18:32:37,426: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-22 18:32:37,429: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:32:37,430: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:32:37,431: INFO: common: created directory at: artifacts]
+[2024-06-22 18:32:37,432: INFO: common: created directory at: artifacts/training]
+[2024-06-22 18:32:38,680: INFO: training: Model training and cross validation initiated.]
+[2024-06-22 18:32:38,680: ERROR: main: name 'validate' is not defined]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 38, in <module>
+    obj.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 19, in main
+    training.train(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 42, in train
+    model = validate( xgb  ,X_train,y_train, self.config.params_scoring ,self.config.params_cv)
+NameError: name 'validate' is not defined
+[2024-06-22 18:33:16,252: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 18:33:16,255: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:33:16,261: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:33:16,262: INFO: common: created directory at: artifacts]
+[2024-06-22 18:33:16,263: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 18:33:16,263: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-22 18:33:16,265: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 18:33:16,265: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 18:33:16,265: INFO: main: *******************]
+[2024-06-22 18:33:16,266: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 18:33:16,268: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:33:16,271: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:33:16,272: INFO: common: created directory at: artifacts]
+[2024-06-22 18:33:16,272: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 18:33:16,272: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 18:33:16,273: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 18:33:16,273: INFO: main: *******************]
+[2024-06-22 18:33:16,273: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-22 18:33:16,276: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:33:16,278: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:33:16,279: INFO: common: created directory at: artifacts]
+[2024-06-22 18:33:16,280: INFO: common: created directory at: artifacts/training]
+[2024-06-22 18:33:17,659: INFO: training: Model training and cross validation initiated.]
+[2024-06-22 18:33:17,660: ERROR: main: 'TrainingConfig' object has no attribute 'params_scoring']
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 38, in <module>
+    obj.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 19, in main
+    training.train(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 42, in train
+    model = self.validate( xgb  ,X_train,y_train, self.config.params_scoring ,self.config.params_cv)
+AttributeError: 'TrainingConfig' object has no attribute 'params_scoring'
+[2024-06-22 18:34:38,721: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 18:34:38,724: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:34:38,726: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:34:38,727: INFO: common: created directory at: artifacts]
+[2024-06-22 18:34:38,728: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 18:34:38,729: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-22 18:34:38,730: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 18:34:38,730: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 18:34:38,730: INFO: main: *******************]
+[2024-06-22 18:34:38,730: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 18:34:38,734: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:34:38,736: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:34:38,736: INFO: common: created directory at: artifacts]
+[2024-06-22 18:34:38,737: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 18:34:38,737: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 18:34:38,738: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 18:34:38,738: INFO: main: *******************]
+[2024-06-22 18:34:38,738: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-22 18:34:38,740: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:34:38,743: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:34:38,743: INFO: common: created directory at: artifacts]
+[2024-06-22 18:34:38,744: INFO: common: created directory at: artifacts/training]
+[2024-06-22 18:34:40,293: INFO: training: Model training and cross validation initiated.]
+[2024-06-22 18:34:40,293: ERROR: main: Training.validate() takes 5 positional arguments but 6 were given]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 38, in <module>
+    obj.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 19, in main
+    training.train(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 42, in train
+    model = self.validate( xgb  ,X_train,y_train, self.config.scoring ,self.config.cv)
+TypeError: Training.validate() takes 5 positional arguments but 6 were given
+[2024-06-22 18:36:34,207: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 18:36:34,210: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:36:34,213: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:36:34,214: INFO: common: created directory at: artifacts]
+[2024-06-22 18:36:34,215: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 18:36:34,219: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-22 18:36:34,220: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 18:36:34,221: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 18:36:34,221: INFO: main: *******************]
+[2024-06-22 18:36:34,221: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 18:36:34,223: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:36:34,225: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:36:34,226: INFO: common: created directory at: artifacts]
+[2024-06-22 18:36:34,231: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 18:36:34,231: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 18:36:34,232: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 18:36:34,232: INFO: main: *******************]
+[2024-06-22 18:36:34,232: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-22 18:36:34,235: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 18:36:34,240: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 18:36:34,242: INFO: common: created directory at: artifacts]
+[2024-06-22 18:36:34,242: INFO: common: created directory at: artifacts/training]
+[2024-06-22 18:36:35,618: INFO: training: Model training and cross validation initiated.]
+[2024-06-22 18:38:21,264: INFO: training: Cross Validation Scores: [0.99063215 0.98941648 0.9902746  0.98820164 0.98905971]]
+[2024-06-22 18:38:21,265: INFO: training: Scores Mean:  0.9895169155985206]
+[2024-06-22 18:38:21,265: INFO: training: Scores Standard Deviation: 0.0008679747406873597]
+[2024-06-22 18:38:44,916: INFO: training: Model saved in path artifacts/training/model.pkl.]
+[2024-06-22 18:38:44,917: INFO: main: >>>>>> stage Train and save model completed <<<<<<
+
+x==========x]
