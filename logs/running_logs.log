@@ -1,0 +1,100 @@
+[2024-06-22 15:00:31,335: INFO: main: Starting Custom logging...]
+[2024-06-22 15:43:38,234: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 15:43:38,237: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 15:51:03,414: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 15:51:03,418: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 15:51:03,423: INFO: common: created directory at: artifacts]
+[2024-06-22 15:51:03,433: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 15:51:07,250: INFO: 2391244112:  file from url https://drive.google.com/uc?/export=download&id=1RmDs2j3QcY05ixoV1-ACmxmnM5xdmiGF downloaded and saved at path artifacts/data_ingestion/card_transdata.zip]
+[2024-06-22 15:51:43,659: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 15:51:43,664: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 15:51:43,668: INFO: common: created directory at: artifacts]
+[2024-06-22 15:51:43,671: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 15:51:43,676: INFO: 2391244112: File already exists of size: ~ 74490 KB]
+[2024-06-22 15:51:50,647: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 15:51:50,652: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 15:51:50,655: INFO: common: created directory at: artifacts]
+[2024-06-22 15:51:50,659: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 15:51:50,663: INFO: 2391244112: File already exists of size: ~ 74490 KB]
+[2024-06-22 15:52:10,582: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 15:52:10,587: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 15:52:10,596: INFO: common: created directory at: artifacts]
+[2024-06-22 15:52:10,609: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 15:52:14,945: INFO: 2391244112:  file from url https://drive.google.com/uc?/export=download&id=1RmDs2j3QcY05ixoV1-ACmxmnM5xdmiGF downloaded and saved at path artifacts/data_ingestion/card_transdata.zip]
+[2024-06-22 15:54:15,295: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 15:54:15,302: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 15:54:15,318: INFO: common: created directory at: artifacts]
+[2024-06-22 15:54:15,325: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 15:54:15,336: INFO: 2494678114: File already exists of size: ~ 74490 KB]
+[2024-06-22 15:54:25,557: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 15:54:25,564: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 15:54:25,580: INFO: common: created directory at: artifacts]
+[2024-06-22 15:54:25,606: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 15:54:30,180: INFO: 2494678114:  file from url https://drive.google.com/uc?/export=download&id=1RmDs2j3QcY05ixoV1-ACmxmnM5xdmiGF downloaded and saved at path artifacts/data_ingestion/card_transdata.zip]
+[2024-06-22 15:54:47,959: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 15:54:47,963: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 15:54:47,966: INFO: common: created directory at: artifacts]
+[2024-06-22 15:54:47,971: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 15:54:47,974: INFO: 2494678114: File already exists of size: ~ 74490 KB]
+[2024-06-22 15:55:32,663: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 15:55:32,669: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 15:55:32,681: INFO: common: created directory at: artifacts]
+[2024-06-22 15:55:32,689: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 15:55:32,694: INFO: 2494678114: File already exists of size: ~ 4 KB]
+[2024-06-22 15:56:25,554: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 15:56:25,558: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 15:56:25,561: INFO: common: created directory at: artifacts]
+[2024-06-22 15:56:25,563: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 15:56:28,634: INFO: 2494678114:  file from url https://drive.google.com/uc?/export=download&id=1RmDs2j3QcY05ixoV1-ACmxmnM5xdmiGF downloaded and saved at path artifacts/data_ingestion/card_transdata.csv]
+[2024-06-22 16:13:57,884: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 16:13:57,886: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 16:13:57,888: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 16:13:57,889: INFO: common: created directory at: artifacts]
+[2024-06-22 16:13:57,890: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 16:13:57,892: ERROR: stage_01_data_ingestion: name 'url' is not defined]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_01_data_ingestion.py", line 25, in <module>
+    obj.main()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_01_data_ingestion.py", line 16, in main
+    data_ingestion.download_file()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/data_ingestion.py", line 19, in download_file
+    file_id = url.split("/")[-2]
+NameError: name 'url' is not defined
+[2024-06-22 16:15:35,743: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 16:15:35,745: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 16:15:35,747: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 16:15:35,748: INFO: common: created directory at: artifacts]
+[2024-06-22 16:15:35,749: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 16:15:35,750: ERROR: stage_01_data_ingestion: name 'gdown' is not defined]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_01_data_ingestion.py", line 25, in <module>
+    obj.main()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_01_data_ingestion.py", line 16, in main
+    data_ingestion.download_file()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/data_ingestion.py", line 21, in download_file
+    gdown.download(prefix+file_id, self.config.local_data_file)
+NameError: name 'gdown' is not defined
+[2024-06-22 16:15:47,108: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 16:15:47,111: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 16:15:47,113: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 16:15:47,114: INFO: common: created directory at: artifacts]
+[2024-06-22 16:15:47,115: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 16:15:47,117: ERROR: stage_01_data_ingestion: name 'gdown' is not defined]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_01_data_ingestion.py", line 25, in <module>
+    obj.main()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_01_data_ingestion.py", line 16, in main
+    data_ingestion.download_file()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/data_ingestion.py", line 21, in download_file
+    gdown.download(prefix+file_id, self.config.local_data_file)
+NameError: name 'gdown' is not defined
+[2024-06-22 16:16:00,694: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 16:16:00,697: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 16:16:00,698: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 16:16:00,699: INFO: common: created directory at: artifacts]
+[2024-06-22 16:16:00,700: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 16:16:04,819: INFO: data_ingestion:  file from url https://drive.google.com/uc?/export=download&id=1RmDs2j3QcY05ixoV1-ACmxmnM5xdmiGF downloaded and saved at path artifacts/data_ingestion/card_transdata.csv]
+[2024-06-22 16:16:04,834: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 16:16:04,835: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]

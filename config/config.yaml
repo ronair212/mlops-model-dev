@@ -1,0 +1,9 @@
+artifacts_root: artifacts
+
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  source_URL: https://drive.google.com/file/d/1RmDs2j3QcY05ixoV1-ACmxmnM5xdmiGF/view?usp=sharing
+  local_data_file: artifacts/data_ingestion/card_transdata.csv
+  unzip_dir: artifacts/data_ingestion
+

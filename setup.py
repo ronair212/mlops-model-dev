@@ -8,7 +8,7 @@ __version__ = "0.0.0"
 
 REPO_NAME = "mlops-model-dev"
 AUTHOR_USER_NAME = "ronair212"
-SRC_REPO = "mlops-model-dev"
+SRC_REPO = "XGBClassifier"
 AUTHOR_EMAIL = "rohitnair212@gmail.com"
 
 
