@@ -2,7 +2,7 @@ from XGBClassifier.constants import *
 import os
 from pathlib import Path
 from XGBClassifier.utils.common import read_yaml, create_directories
-from XGBClassifier.entity.config_entity import DataIngestionConfig
+from XGBClassifier.entity.config_entity import (DataIngestionConfig, PrepareBaseModelConfig)
 
 
 
@@ -35,4 +35,18 @@ class ConfigurationManager:
         return data_ingestion_config
 
 
-      
+    def get_prepare_base_model_config(self) -> PrepareBaseModelConfig:
+        config = self.config.prepare_base_model
+        
+        create_directories([config.root_dir])
+
+        prepare_base_model_config = PrepareBaseModelConfig(
+            params_n_estimators=self.params.n_estimators,
+            params_random_state=self.params.random_state,
+            params_n_jobs=self.params.n_jobs,
+            params_max_depth=self.params.max_depth,
+            params_learning_rate=self.params.learning_rate, 
+            params_subsample=self.params.subsample, 
+        )
+
+        return prepare_base_model_config

@@ -118,3 +118,115 @@ x==========x]
 [2024-06-22 16:22:42,486: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
 
 x==========x]
+[2024-06-22 17:05:08,713: INFO: stage_02_prepare_base_model: *******************]
+[2024-06-22 17:05:08,713: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 17:05:08,717: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 17:05:08,720: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 17:05:08,721: INFO: common: created directory at: artifacts]
+[2024-06-22 17:05:08,725: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 17:05:08,725: ERROR: stage_02_prepare_base_model: "'ConfigBox' object has no attribute 'base_model_path'"]
+Traceback (most recent call last):
+  File "box/box.py", line 503, in box.box.Box.__getitem__
+KeyError: 'base_model_path'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 536, in box.box.Box.__getattr__
+  File "box/box.py", line 524, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'base_model_path'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 538, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'base_model_path'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/config_box.py", line 28, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 552, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'base_model_path'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 503, in box.box.Box.__getitem__
+KeyError: 'base_model_path'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 536, in box.box.Box.__getattr__
+  File "box/box.py", line 524, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'base_model_path'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 538, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'base_model_path'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_02_prepare_base_model.py", line 25, in <module>
+    obj.main()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_02_prepare_base_model.py", line 14, in main
+    prepare_base_model_config = config.get_prepare_base_model_config()
+  File "/home/nair.ro/ChickenDiseasaeClassification/src/cnnClassifier/config/configuration.py", line 50, in get_prepare_base_model_config
+    base_model_path=Path(config.base_model_path),
+  File "box/config_box.py", line 30, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 552, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'base_model_path'"
+[2024-06-22 17:09:55,499: INFO: stage_02_prepare_base_model: *******************]
+[2024-06-22 17:09:55,499: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 17:09:55,502: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 17:09:55,506: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 17:09:55,507: INFO: common: created directory at: artifacts]
+[2024-06-22 17:09:55,508: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 17:09:55,508: ERROR: stage_02_prepare_base_model: name 'XGBClassifier' is not defined]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_02_prepare_base_model.py", line 26, in <module>
+    obj.main()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_02_prepare_base_model.py", line 17, in main
+    xgb = prepare_base_model.prepare_XGBClassifier_model()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/prepare_base_model.py", line 12, in prepare_XGBClassifier_model
+    xgb = XGBClassifier(n_estimators=self.config.params_n_estimators ,
+NameError: name 'XGBClassifier' is not defined
+[2024-06-22 17:10:44,752: INFO: stage_02_prepare_base_model: *******************]
+[2024-06-22 17:10:44,753: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 17:10:44,755: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 17:10:44,757: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 17:10:44,758: INFO: common: created directory at: artifacts]
+[2024-06-22 17:10:44,759: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 17:10:44,760: ERROR: stage_02_prepare_base_model: name 'logger' is not defined]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_02_prepare_base_model.py", line 26, in <module>
+    obj.main()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_02_prepare_base_model.py", line 17, in main
+    xgb = prepare_base_model.prepare_XGBClassifier_model()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/prepare_base_model.py", line 16, in prepare_XGBClassifier_model
+    logger.info(f"Initialized XGBClassifier with following parameters {self.config}")
+NameError: name 'logger' is not defined
+[2024-06-22 17:11:02,418: INFO: stage_02_prepare_base_model: *******************]
+[2024-06-22 17:11:02,419: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 17:11:02,421: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 17:11:02,423: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 17:11:02,424: INFO: common: created directory at: artifacts]
+[2024-06-22 17:11:02,425: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 17:11:02,426: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 17:11:02,426: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 17:12:39,495: INFO: stage_02_prepare_base_model: *******************]
+[2024-06-22 17:12:39,495: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 17:12:39,498: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 17:12:39,500: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 17:12:39,500: INFO: common: created directory at: artifacts]
+[2024-06-22 17:12:39,501: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 17:12:39,502: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 17:12:39,503: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
