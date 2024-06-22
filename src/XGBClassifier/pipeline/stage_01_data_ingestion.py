@@ -1,4 +1,4 @@
-from XGBClassifier.config.configuration import ConfigurationManager
+from XGBClassifier.config_mngr.configuration_manager import ConfigurationManager
 from XGBClassifier.components.data_ingestion import DataIngestion
 from XGBClassifier import logger
 

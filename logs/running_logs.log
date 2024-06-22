@@ -98,3 +98,23 @@ NameError: name 'gdown' is not defined
 [2024-06-22 16:16:04,835: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage completed <<<<<<
 
 x==========x]
+[2024-06-22 16:19:45,704: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 16:19:45,707: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 16:19:45,711: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 16:19:45,713: INFO: common: created directory at: artifacts]
+[2024-06-22 16:19:45,714: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 16:19:50,031: INFO: data_ingestion:  file from url https://drive.google.com/uc?/export=download&id=1RmDs2j3QcY05ixoV1-ACmxmnM5xdmiGF downloaded and saved at path artifacts/data_ingestion/card_transdata.csv]
+[2024-06-22 16:19:50,047: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 16:19:50,048: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 16:22:39,245: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 16:22:39,249: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 16:22:39,252: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 16:22:39,255: INFO: common: created directory at: artifacts]
+[2024-06-22 16:22:39,256: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 16:22:42,463: INFO: data_ingestion:  file from url https://drive.google.com/uc?/export=download&id=1RmDs2j3QcY05ixoV1-ACmxmnM5xdmiGF downloaded and saved at path artifacts/data_ingestion/card_transdata.csv]
+[2024-06-22 16:22:42,485: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 16:22:42,486: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
