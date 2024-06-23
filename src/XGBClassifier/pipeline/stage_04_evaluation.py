@@ -16,7 +16,7 @@ class EvaluationPipeline:
         config = ConfigurationManager()
         val_config = config.get_validation_config()
         evalu = Evaluation(config=val_config)
-        evalu.model_evaluation(xgb)
+        evalu.model_evaluation(xgb , "one")
         
         evalu.precision_recall_trade_off(xgb)
         

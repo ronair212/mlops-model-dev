@@ -1,0 +1,15 @@
+artifact_uri: /home/nair.ro/mlops-model-dev/mlruns/595611042534161121/2a31fca58b144ebd875deab72ab84cd6/artifacts
+end_time: 1719109690742
+entry_point_name: ''
+experiment_id: '595611042534161121'
+lifecycle_stage: active
+run_id: 2a31fca58b144ebd875deab72ab84cd6
+run_name: puzzled-grouse-495
+run_uuid: 2a31fca58b144ebd875deab72ab84cd6
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719109690206
+status: 3
+tags: []
+user_id: ee2842d33bcd6aae5d0b3f1503e24390721609dd

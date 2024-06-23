@@ -8,6 +8,7 @@ import plotly.express as px
 from sklearn.metrics import confusion_matrix , precision_recall_curve , roc_auc_score , roc_curve , classification_report
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
+import dagshub
 
 from sklearn.metrics import classification_report, confusion_matrix
 from XGBClassifier.utils.common import *
@@ -54,65 +55,83 @@ class Evaluation:
         save_json(path=Path("prt.json"), data=prt_dict)
         
     
-    def model_evaluation(self, model, color='Blues', threshold=0.5):
-        '''This function is to evaluate the model based on a given threshold
-        1--> print the classification report     
-        2--> display and save the confusion matrix'''
-        
-        # Classification report
-        X_train , X_test ,y_train , y_test  = self.train_valid_generator()
+    def get_or_create_experiment_id(self, name):
+        exp = mlflow.get_experiment_by_name(name)
+        if exp is None:
+            exp_id = mlflow.create_experiment(name)
+            return exp_id
+        return exp.experiment_id
+
+    def model_evaluation(self, model, experiment_name, threshold=0.5):
+        '''This function evaluates the model based on a given threshold
+        and logs the evaluation metrics with both DagsHub and locally'''
+
+        # Generate train and test data
+        X_train, X_test, y_train, y_test = self.train_valid_generator()
+
+        # Predict probabilities and binary predictions
         y_proba_test = model.predict_proba(X_test)
-        y_pred_test  = (y_proba_test[:,1] >= threshold)
+        y_pred_test = (y_proba_test[:, 1] >= threshold)
+
+        # Print the classification report
         logger.info("\n", classification_report(y_test, y_pred_test, zero_division=0))
-        
-        # Confusion matrix
-        cm = confusion_matrix(y_test, y_pred_test)
-        cm_df = pd.DataFrame(cm, index=['Actual Negative', 'Actual Positive'], columns=['Predicted Negative', 'Predicted Positive'])
-        
-        fig = px.imshow(cm_df, text_auto=True, color_continuous_scale=color, 
-                        labels=dict(x="Predicted", y="Actual", color="Count"),
-                        title="Confusion Matrix")
-        
-        # Save the confusion matrix plot using the utility function
-        save_figure_with_timestamp(fig, prefix="confusion_matrix")
-        
-        '''
-        # Calculate additional metrics
+
+        # Calculate evaluation metrics
         accuracy = accuracy_score(y_test, y_pred_test)
         precision = precision_score(y_test, y_pred_test)
         recall = recall_score(y_test, y_pred_test)
         f1 = f1_score(y_test, y_pred_test)
 
-        # Set up DagsHub repository URL
-        dagshub_repo_url = "https://dagshub.com/<username>/<repository>.mlflow"
-        mlflow.set_tracking_uri(dagshub_repo_url)
+        # Metrics DataFrame
+        metrics_df = pd.DataFrame({
+            'Metric': ['Accuracy', 'Precision', 'Recall', 'F1 Score'],
+            'Value': [accuracy, precision, recall, f1]
+        })
 
-        # Example model parameters
-        model_params = self.config.all_params
+        # Plot the evaluation metrics
+        fig = px.line(metrics_df, x='Metric', y='Value', title='Evaluation Metrics')
 
-        # Log the heatmap and metrics with MLflow
-        with mlflow.start_run():
-            # Log the heatmap image
-            mlflow.log_artifact(heatmap_path)
-            
-            # Log the confusion matrix as a parameter
-            mlflow.log_param("confusion_matrix", cm.tolist())
-            
+        # Save the plot
+        save_figure_with_timestamp(fig, prefix="evaluation_metrics")
+
+        # Set up local MLflow tracking URI
+        local_mlflow_dir = 'mlruns'
+        mlflow.set_tracking_uri(local_mlflow_dir)
+
+        # Get or create an experiment
+        experiment_id = self.get_or_create_experiment_id(experiment_name)
+
+        with mlflow.start_run(experiment_id=experiment_id):
             # Log model parameters
+            model_params = self.config.all_params
             for param_name, param_value in model_params.items():
                 mlflow.log_param(param_name, param_value)
-            
-            # Log model metrics
+
+            # Log evaluation metrics
             mlflow.log_metric("accuracy", accuracy)
             mlflow.log_metric("precision", precision)
             mlflow.log_metric("recall", recall)
             mlflow.log_metric("f1_score", f1)
 
-            # Log the model itself
-            # Assuming you have a trained model object named 'model'
-            # Example for a scikit-learn model:
-            # mlflow.sklearn.log_model(model, "model")
-        '''
+        # Log to DagsHub
+        dagshub.init(repo_owner='ronair212', repo_name='mlops-model-dev', mlflow=True)
+        #mlflow.set_tracking_uri('https://dagshub.com/ronair212/mlops-model-dev.mlflow')
+
+        with mlflow.start_run(experiment_id=experiment_id):
+            # Log model parameters
+            for param_name, param_value in model_params.items():
+                mlflow.log_param(param_name, param_value)
+
+            # Log evaluation metrics
+            mlflow.log_metric("accuracy", accuracy)
+            mlflow.log_metric("precision", precision)
+            mlflow.log_metric("recall", recall)
+            mlflow.log_metric("f1_score", f1)
+
+        # Reset tracking URI to local after logging to DagsHub
+        mlflow.set_tracking_uri(local_mlflow_dir)
+        
+        
     
     def roc_auc(self, model):
     

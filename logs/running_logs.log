@@ -2336,3 +2336,493 @@ x==========x]
 [2024-06-22 21:29:06,092: INFO: main: >>>>>> stage Evaluation stage completed <<<<<<
 
 x==========x]
+[2024-06-22 21:42:26,186: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 21:42:26,189: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 21:42:26,191: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 21:42:26,193: INFO: common: created directory at: artifacts]
+[2024-06-22 21:42:26,194: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 21:42:26,195: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-22 21:42:26,196: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 21:42:26,196: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 21:42:26,197: INFO: main: *******************]
+[2024-06-22 21:42:26,197: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 21:42:26,200: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 21:42:26,202: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 21:42:26,203: INFO: common: created directory at: artifacts]
+[2024-06-22 21:42:26,204: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 21:42:26,204: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 21:42:26,204: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 21:42:26,205: INFO: main: *******************]
+[2024-06-22 21:42:26,205: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-22 21:42:26,208: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 21:42:26,210: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 21:42:26,211: INFO: common: created directory at: artifacts]
+[2024-06-22 21:42:26,212: INFO: common: created directory at: artifacts/training]
+[2024-06-22 21:42:27,537: INFO: training: Model training and cross validation initiated.]
+[2024-06-22 21:44:12,495: INFO: training: Cross Validation Scores: [0.99063215 0.98941648 0.9902746  0.98820164 0.98905971]]
+[2024-06-22 21:44:12,496: INFO: training: Scores Mean:  0.9895169155985206]
+[2024-06-22 21:44:12,497: INFO: training: Scores Standard Deviation: 0.0008679747406873597]
+[2024-06-22 21:44:36,439: INFO: training: Model saved in path artifacts/training/model.pkl.]
+[2024-06-22 21:44:36,440: INFO: main: >>>>>> stage Train and save model completed <<<<<<
+
+x==========x]
+[2024-06-22 21:44:36,441: INFO: main: *******************]
+[2024-06-22 21:44:36,441: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2024-06-22 21:44:36,444: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 21:44:36,448: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 21:44:36,451: INFO: common: created directory at: artifacts]
+[2024-06-22 21:44:40,645: INFO: evaluation: 
+              precision    recall  f1-score   support
+
+         0.0       1.00      1.00      1.00    182519
+         1.0       0.99      0.99      0.99     17481
+
+    accuracy                           1.00    200000
+   macro avg       0.99      0.99      0.99    200000
+weighted avg       1.00      1.00      1.00    200000
+]
+[2024-06-22 21:44:43,040: INFO: common: Figure saved as: confusion_matrix_20240622_214441.png]
+[2024-06-22 21:44:43,837: ERROR: main: API request to endpoint /api/2.0/mlflow/runs/create failed with error code 403 != 200. Response body: '']
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 52, in <module>
+    model_evalution.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_04_evaluation.py", line 19, in main
+    evalu.model_evaluation(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/evaluation.py", line 88, in model_evaluation
+    with mlflow.start_run():
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/mlflow/tracking/fluent.py", line 382, in start_run
+    active_run_obj = client.create_run(
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/mlflow/tracking/client.py", line 393, in create_run
+    return self._tracking_client.create_run(experiment_id, start_time, tags, run_name)
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/mlflow/tracking/_tracking_service/client.py", line 165, in create_run
+    return self.store.create_run(
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/mlflow/store/tracking/rest_store.py", line 208, in create_run
+    response_proto = self._call_endpoint(CreateRun, req_body)
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/mlflow/store/tracking/rest_store.py", line 81, in _call_endpoint
+    return call_endpoint(self.get_host_creds(), endpoint, method, json_body, response_proto)
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/mlflow/utils/rest_utils.py", line 304, in call_endpoint
+    response = verify_rest_response(response, endpoint)
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/mlflow/utils/rest_utils.py", line 180, in verify_rest_response
+    raise MlflowException(
+mlflow.exceptions.MlflowException: API request to endpoint /api/2.0/mlflow/runs/create failed with error code 403 != 200. Response body: ''
+[2024-06-22 21:51:06,494: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 21:51:06,498: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 21:51:06,500: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 21:51:06,501: INFO: common: created directory at: artifacts]
+[2024-06-22 21:51:06,502: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 21:51:06,503: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-22 21:51:06,504: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 21:51:06,504: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 21:51:06,504: INFO: main: *******************]
+[2024-06-22 21:51:06,504: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 21:51:06,507: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 21:51:06,509: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 21:51:06,510: INFO: common: created directory at: artifacts]
+[2024-06-22 21:51:06,510: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 21:51:06,511: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 21:51:06,511: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 21:51:06,511: INFO: main: *******************]
+[2024-06-22 21:51:06,511: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-22 21:51:06,515: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 21:51:06,516: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 21:51:06,517: INFO: common: created directory at: artifacts]
+[2024-06-22 21:51:06,517: INFO: common: created directory at: artifacts/training]
+[2024-06-22 21:51:07,996: INFO: training: Model training and cross validation initiated.]
+[2024-06-22 21:52:52,986: INFO: training: Cross Validation Scores: [0.99063215 0.98941648 0.9902746  0.98820164 0.98905971]]
+[2024-06-22 21:52:52,989: INFO: training: Scores Mean:  0.9895169155985206]
+[2024-06-22 21:52:52,989: INFO: training: Scores Standard Deviation: 0.0008679747406873597]
+[2024-06-22 21:53:17,188: INFO: training: Model saved in path artifacts/training/model.pkl.]
+[2024-06-22 21:53:17,190: INFO: main: >>>>>> stage Train and save model completed <<<<<<
+
+x==========x]
+[2024-06-22 21:53:17,190: INFO: main: *******************]
+[2024-06-22 21:53:17,190: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2024-06-22 21:53:17,194: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 21:53:17,198: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 21:53:17,202: INFO: common: created directory at: artifacts]
+[2024-06-22 21:53:21,436: INFO: evaluation: 
+              precision    recall  f1-score   support
+
+         0.0       1.00      1.00      1.00    182519
+         1.0       0.99      0.99      0.99     17481
+
+    accuracy                           1.00    200000
+   macro avg       0.99      0.99      0.99    200000
+weighted avg       1.00      1.00      1.00    200000
+]
+[2024-06-22 21:53:26,409: INFO: common: Figure saved as: confusion_matrix_20240622_215325.png]
+[2024-06-22 21:53:42,457: INFO: common: Figure saved as: precision_recall_curve_20240622_215332.png]
+[2024-06-22 21:53:42,464: INFO: evaluation:         Threshold  Precision  Recall
+179722   0.001308   0.967030     1.0
+179723   0.001317   0.967083     1.0
+179724   0.001319   0.967137     1.0
+179725   0.001330   0.967190     1.0
+179726   0.001333   0.967244     1.0
+179727   0.001334   0.967297     1.0
+179728   0.001337   0.967351     1.0
+179729   0.001337   0.967405     1.0
+179730   0.001338   0.967458     1.0
+179731   0.001340   0.967512     1.0]
+[2024-06-22 21:53:42,519: INFO: common: json file saved at: prt.json]
+[2024-06-22 21:53:57,145: INFO: common: Figure saved as: precision_recall_curve_20240622_215346.png]
+[2024-06-22 21:53:57,154: INFO: evaluation:         Threshold  Precision  Recall
+179722   0.001308   0.967030     1.0
+179723   0.001317   0.967083     1.0
+179724   0.001319   0.967137     1.0
+179725   0.001330   0.967190     1.0
+179726   0.001333   0.967244     1.0
+179727   0.001334   0.967297     1.0
+179728   0.001337   0.967351     1.0
+179729   0.001337   0.967405     1.0
+179730   0.001338   0.967458     1.0
+179731   0.001340   0.967512     1.0]
+[2024-06-22 21:53:57,187: INFO: common: json file saved at: prt.json]
+[2024-06-22 21:53:57,192: INFO: main: >>>>>> stage Evaluation stage completed <<<<<<
+
+x==========x]
+[2024-06-22 21:59:31,907: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 21:59:31,911: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 21:59:31,916: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 21:59:31,918: INFO: common: created directory at: artifacts]
+[2024-06-22 21:59:31,920: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 21:59:31,921: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-22 21:59:31,923: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 21:59:31,923: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 21:59:31,923: INFO: main: *******************]
+[2024-06-22 21:59:31,923: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 21:59:31,928: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 21:59:31,931: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 21:59:31,934: INFO: common: created directory at: artifacts]
+[2024-06-22 21:59:31,936: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 21:59:31,936: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 21:59:31,936: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 21:59:31,937: INFO: main: *******************]
+[2024-06-22 21:59:31,937: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-22 21:59:31,940: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 21:59:31,945: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 21:59:31,947: INFO: common: created directory at: artifacts]
+[2024-06-22 21:59:31,948: INFO: common: created directory at: artifacts/training]
+[2024-06-22 21:59:33,306: INFO: training: Model training and cross validation initiated.]
+[2024-06-22 22:01:18,491: INFO: training: Cross Validation Scores: [0.99063215 0.98941648 0.9902746  0.98820164 0.98905971]]
+[2024-06-22 22:01:18,492: INFO: training: Scores Mean:  0.9895169155985206]
+[2024-06-22 22:01:18,493: INFO: training: Scores Standard Deviation: 0.0008679747406873597]
+[2024-06-22 22:01:42,194: INFO: training: Model saved in path artifacts/training/model.pkl.]
+[2024-06-22 22:01:42,194: INFO: main: >>>>>> stage Train and save model completed <<<<<<
+
+x==========x]
+[2024-06-22 22:01:42,195: INFO: main: *******************]
+[2024-06-22 22:01:42,195: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2024-06-22 22:01:42,198: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 22:01:42,201: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 22:01:42,202: INFO: common: created directory at: artifacts]
+[2024-06-22 22:01:46,927: ERROR: main: name 'dagshub' is not defined]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 52, in <module>
+    model_evalution.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_04_evaluation.py", line 19, in main
+    evalu.model_evaluation(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/evaluation.py", line 78, in model_evaluation
+    dagshub.init(repo_owner='ronair212', repo_name='mlops-model-dev', mlflow=True)
+NameError: name 'dagshub' is not defined
+[2024-06-22 22:02:33,765: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 22:02:33,770: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 22:02:33,774: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 22:02:33,776: INFO: common: created directory at: artifacts]
+[2024-06-22 22:02:33,777: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 22:02:33,778: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-22 22:02:33,779: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 22:02:33,780: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 22:02:33,783: INFO: main: *******************]
+[2024-06-22 22:02:33,783: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 22:02:33,787: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 22:02:33,790: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 22:02:33,791: INFO: common: created directory at: artifacts]
+[2024-06-22 22:02:33,792: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 22:02:33,793: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 22:02:33,793: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 22:02:33,793: INFO: main: *******************]
+[2024-06-22 22:02:33,794: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-22 22:02:33,798: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 22:02:33,801: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 22:02:33,802: INFO: common: created directory at: artifacts]
+[2024-06-22 22:02:33,803: INFO: common: created directory at: artifacts/training]
+[2024-06-22 22:02:35,225: INFO: training: Model training and cross validation initiated.]
+[2024-06-22 22:04:20,617: INFO: training: Cross Validation Scores: [0.99063215 0.98941648 0.9902746  0.98820164 0.98905971]]
+[2024-06-22 22:04:20,618: INFO: training: Scores Mean:  0.9895169155985206]
+[2024-06-22 22:04:20,619: INFO: training: Scores Standard Deviation: 0.0008679747406873597]
+[2024-06-22 22:04:44,579: INFO: training: Model saved in path artifacts/training/model.pkl.]
+[2024-06-22 22:04:44,579: INFO: main: >>>>>> stage Train and save model completed <<<<<<
+
+x==========x]
+[2024-06-22 22:04:44,580: INFO: main: *******************]
+[2024-06-22 22:04:44,580: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2024-06-22 22:04:44,583: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 22:04:44,585: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 22:04:44,586: INFO: common: created directory at: artifacts]
+[2024-06-22 22:04:49,494: INFO: helpers: Initialized MLflow to track repo "ronair212/mlops-model-dev"]
+[2024-06-22 22:04:49,496: INFO: helpers: Repository ronair212/mlops-model-dev initialized!]
+[2024-06-22 22:04:53,921: INFO: common: Figure saved as: evaluation_metrics_20240622_220452.png]
+[2024-06-22 22:05:08,269: INFO: common: Figure saved as: precision_recall_curve_20240622_220457.png]
+[2024-06-22 22:05:08,276: INFO: evaluation:         Threshold  Precision  Recall
+179722   0.001308   0.967030     1.0
+179723   0.001317   0.967083     1.0
+179724   0.001319   0.967137     1.0
+179725   0.001330   0.967190     1.0
+179726   0.001333   0.967244     1.0
+179727   0.001334   0.967297     1.0
+179728   0.001337   0.967351     1.0
+179729   0.001337   0.967405     1.0
+179730   0.001338   0.967458     1.0
+179731   0.001340   0.967512     1.0]
+[2024-06-22 22:05:08,301: INFO: common: json file saved at: prt.json]
+[2024-06-22 22:05:22,634: INFO: common: Figure saved as: precision_recall_curve_20240622_220512.png]
+[2024-06-22 22:05:22,640: INFO: evaluation:         Threshold  Precision  Recall
+179722   0.001308   0.967030     1.0
+179723   0.001317   0.967083     1.0
+179724   0.001319   0.967137     1.0
+179725   0.001330   0.967190     1.0
+179726   0.001333   0.967244     1.0
+179727   0.001334   0.967297     1.0
+179728   0.001337   0.967351     1.0
+179729   0.001337   0.967405     1.0
+179730   0.001338   0.967458     1.0
+179731   0.001340   0.967512     1.0]
+[2024-06-22 22:05:22,689: INFO: common: json file saved at: prt.json]
+[2024-06-22 22:05:22,695: INFO: main: >>>>>> stage Evaluation stage completed <<<<<<
+
+x==========x]
+[2024-06-22 22:12:05,686: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 22:12:05,690: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 22:12:05,692: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 22:12:05,694: INFO: common: created directory at: artifacts]
+[2024-06-22 22:12:05,695: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 22:12:05,696: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-22 22:12:05,697: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 22:12:05,697: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 22:12:05,697: INFO: main: *******************]
+[2024-06-22 22:12:05,697: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 22:12:05,701: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 22:12:05,703: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 22:12:05,704: INFO: common: created directory at: artifacts]
+[2024-06-22 22:12:05,705: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 22:12:05,705: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 22:12:05,705: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 22:12:05,711: INFO: main: *******************]
+[2024-06-22 22:12:05,711: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-22 22:12:05,715: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 22:12:05,717: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 22:12:05,718: INFO: common: created directory at: artifacts]
+[2024-06-22 22:12:05,719: INFO: common: created directory at: artifacts/training]
+[2024-06-22 22:12:07,238: INFO: training: Model training and cross validation initiated.]
+[2024-06-22 22:13:52,342: INFO: training: Cross Validation Scores: [0.99063215 0.98941648 0.9902746  0.98820164 0.98905971]]
+[2024-06-22 22:13:52,343: INFO: training: Scores Mean:  0.9895169155985206]
+[2024-06-22 22:13:52,343: INFO: training: Scores Standard Deviation: 0.0008679747406873597]
+[2024-06-22 22:14:15,979: INFO: training: Model saved in path artifacts/training/model.pkl.]
+[2024-06-22 22:14:15,980: INFO: main: >>>>>> stage Train and save model completed <<<<<<
+
+x==========x]
+[2024-06-22 22:14:15,980: INFO: main: *******************]
+[2024-06-22 22:14:15,980: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2024-06-22 22:14:15,983: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 22:14:15,986: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 22:14:15,987: INFO: common: created directory at: artifacts]
+[2024-06-22 22:14:15,988: ERROR: main: Evaluation.model_evaluation() missing 1 required positional argument: 'experiment_name']
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 52, in <module>
+    model_evalution.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_04_evaluation.py", line 19, in main
+    evalu.model_evaluation(xgb)
+TypeError: Evaluation.model_evaluation() missing 1 required positional argument: 'experiment_name'
+[2024-06-22 22:18:15,919: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 22:18:15,923: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 22:18:15,926: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 22:18:15,927: INFO: common: created directory at: artifacts]
+[2024-06-22 22:18:15,927: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 22:18:15,928: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-22 22:18:15,929: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 22:18:15,929: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 22:18:15,930: INFO: main: *******************]
+[2024-06-22 22:18:15,930: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 22:18:15,933: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 22:18:15,935: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 22:18:15,936: INFO: common: created directory at: artifacts]
+[2024-06-22 22:18:15,936: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 22:18:15,937: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 22:18:15,937: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 22:18:15,937: INFO: main: *******************]
+[2024-06-22 22:18:15,937: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-22 22:18:15,942: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 22:18:15,943: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 22:18:15,944: INFO: common: created directory at: artifacts]
+[2024-06-22 22:18:15,945: INFO: common: created directory at: artifacts/training]
+[2024-06-22 22:18:17,270: INFO: training: Model training and cross validation initiated.]
+[2024-06-22 22:20:02,409: INFO: training: Cross Validation Scores: [0.99063215 0.98941648 0.9902746  0.98820164 0.98905971]]
+[2024-06-22 22:20:02,410: INFO: training: Scores Mean:  0.9895169155985206]
+[2024-06-22 22:20:02,410: INFO: training: Scores Standard Deviation: 0.0008679747406873597]
+[2024-06-22 22:20:26,351: INFO: training: Model saved in path artifacts/training/model.pkl.]
+[2024-06-22 22:20:26,351: INFO: main: >>>>>> stage Train and save model completed <<<<<<
+
+x==========x]
+[2024-06-22 22:20:26,352: INFO: main: *******************]
+[2024-06-22 22:20:26,352: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2024-06-22 22:20:26,355: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 22:20:26,357: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 22:20:26,358: INFO: common: created directory at: artifacts]
+[2024-06-22 22:20:32,977: INFO: common: Figure saved as: evaluation_metrics_20240622_222032.png]
+[2024-06-22 22:20:33,742: INFO: helpers: Initialized MLflow to track repo "ronair212/mlops-model-dev"]
+[2024-06-22 22:20:33,743: INFO: helpers: Repository ronair212/mlops-model-dev initialized!]
+[2024-06-22 22:21:37,528: ERROR: main: API request to https://dagshub.com/ronair212/mlops-model-dev.mlflow/api/2.0/mlflow/runs/create failed with exception HTTPSConnectionPool(host='dagshub.com', port=443): Max retries exceeded with url: /ronair212/mlops-model-dev.mlflow/api/2.0/mlflow/runs/create (Caused by ResponseError('too many 500 error responses'))]
+urllib3.exceptions.ResponseError: too many 500 error responses
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/urllib3/connectionpool.py", line 945, in urlopen
+    return self.urlopen(
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/urllib3/connectionpool.py", line 945, in urlopen
+    return self.urlopen(
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/urllib3/connectionpool.py", line 945, in urlopen
+    return self.urlopen(
+  [Previous line repeated 2 more times]
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/urllib3/connectionpool.py", line 935, in urlopen
+    retries = retries.increment(method, url, response=response, _pool=self)
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='dagshub.com', port=443): Max retries exceeded with url: /ronair212/mlops-model-dev.mlflow/api/2.0/mlflow/runs/create (Caused by ResponseError('too many 500 error responses'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/mlflow/utils/rest_utils.py", line 129, in http_request
+    return _get_http_response_with_retries(
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/mlflow/utils/request_utils.py", line 237, in _get_http_response_with_retries
+    return session.request(method, url, allow_redirects=allow_redirects, **kwargs)
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/requests/adapters.py", line 510, in send
+    raise RetryError(e, request=request)
+requests.exceptions.RetryError: HTTPSConnectionPool(host='dagshub.com', port=443): Max retries exceeded with url: /ronair212/mlops-model-dev.mlflow/api/2.0/mlflow/runs/create (Caused by ResponseError('too many 500 error responses'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 52, in <module>
+    model_evalution.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_04_evaluation.py", line 19, in main
+    evalu.model_evaluation(xgb , "one")
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/evaluation.py", line 120, in model_evaluation
+    with mlflow.start_run(experiment_id=experiment_id):
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/mlflow/tracking/fluent.py", line 382, in start_run
+    active_run_obj = client.create_run(
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/mlflow/tracking/client.py", line 393, in create_run
+    return self._tracking_client.create_run(experiment_id, start_time, tags, run_name)
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/mlflow/tracking/_tracking_service/client.py", line 165, in create_run
+    return self.store.create_run(
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/mlflow/store/tracking/rest_store.py", line 208, in create_run
+    response_proto = self._call_endpoint(CreateRun, req_body)
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/mlflow/store/tracking/rest_store.py", line 81, in _call_endpoint
+    return call_endpoint(self.get_host_creds(), endpoint, method, json_body, response_proto)
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/mlflow/utils/rest_utils.py", line 302, in call_endpoint
+    response = http_request(**call_kwargs)
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/mlflow/utils/rest_utils.py", line 152, in http_request
+    raise MlflowException(f"API request to {url} failed with exception {e}")
+mlflow.exceptions.MlflowException: API request to https://dagshub.com/ronair212/mlops-model-dev.mlflow/api/2.0/mlflow/runs/create failed with exception HTTPSConnectionPool(host='dagshub.com', port=443): Max retries exceeded with url: /ronair212/mlops-model-dev.mlflow/api/2.0/mlflow/runs/create (Caused by ResponseError('too many 500 error responses'))
+[2024-06-22 22:25:49,126: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 22:25:49,132: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 22:25:49,135: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 22:25:49,137: INFO: common: created directory at: artifacts]
+[2024-06-22 22:25:49,139: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 22:25:49,143: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-22 22:25:49,149: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 22:25:49,160: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 22:25:49,161: INFO: main: *******************]
+[2024-06-22 22:25:49,161: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 22:25:49,164: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 22:25:49,168: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 22:25:49,170: INFO: common: created directory at: artifacts]
+[2024-06-22 22:25:49,171: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 22:25:49,171: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 22:25:49,172: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 22:25:49,172: INFO: main: *******************]
+[2024-06-22 22:25:49,172: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-22 22:25:49,177: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 22:25:49,179: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 22:25:49,180: INFO: common: created directory at: artifacts]
+[2024-06-22 22:25:49,181: INFO: common: created directory at: artifacts/training]
+[2024-06-22 22:25:50,587: INFO: training: Model training and cross validation initiated.]
+[2024-06-22 22:27:36,108: INFO: training: Cross Validation Scores: [0.99063215 0.98941648 0.9902746  0.98820164 0.98905971]]
+[2024-06-22 22:27:36,111: INFO: training: Scores Mean:  0.9895169155985206]
+[2024-06-22 22:27:36,111: INFO: training: Scores Standard Deviation: 0.0008679747406873597]
+[2024-06-22 22:27:59,960: INFO: training: Model saved in path artifacts/training/model.pkl.]
+[2024-06-22 22:27:59,962: INFO: main: >>>>>> stage Train and save model completed <<<<<<
+
+x==========x]
+[2024-06-22 22:27:59,962: INFO: main: *******************]
+[2024-06-22 22:27:59,962: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2024-06-22 22:27:59,970: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 22:27:59,974: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 22:27:59,975: INFO: common: created directory at: artifacts]
+[2024-06-22 22:28:08,607: INFO: common: Figure saved as: evaluation_metrics_20240622_222807.png]
+[2024-06-22 22:28:10,202: INFO: helpers: Initialized MLflow to track repo "ronair212/mlops-model-dev"]
+[2024-06-22 22:28:10,203: INFO: helpers: Repository ronair212/mlops-model-dev initialized!]
+[2024-06-22 22:28:25,429: INFO: common: Figure saved as: precision_recall_curve_20240622_222815.png]
+[2024-06-22 22:28:25,438: INFO: evaluation:         Threshold  Precision  Recall
+179722   0.001308   0.967030     1.0
+179723   0.001317   0.967083     1.0
+179724   0.001319   0.967137     1.0
+179725   0.001330   0.967190     1.0
+179726   0.001333   0.967244     1.0
+179727   0.001334   0.967297     1.0
+179728   0.001337   0.967351     1.0
+179729   0.001337   0.967405     1.0
+179730   0.001338   0.967458     1.0
+179731   0.001340   0.967512     1.0]
+[2024-06-22 22:28:25,469: INFO: common: json file saved at: prt.json]
+[2024-06-22 22:28:39,935: INFO: common: Figure saved as: precision_recall_curve_20240622_222829.png]
+[2024-06-22 22:28:39,943: INFO: evaluation:         Threshold  Precision  Recall
+179722   0.001308   0.967030     1.0
+179723   0.001317   0.967083     1.0
+179724   0.001319   0.967137     1.0
+179725   0.001330   0.967190     1.0
+179726   0.001333   0.967244     1.0
+179727   0.001334   0.967297     1.0
+179728   0.001337   0.967351     1.0
+179729   0.001337   0.967405     1.0
+179730   0.001338   0.967458     1.0
+179731   0.001340   0.967512     1.0]
+[2024-06-22 22:28:39,986: INFO: common: json file saved at: prt.json]
+[2024-06-22 22:28:39,991: INFO: main: >>>>>> stage Evaluation stage completed <<<<<<
+
+x==========x]
