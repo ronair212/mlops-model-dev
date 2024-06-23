@@ -9,7 +9,8 @@ from box import ConfigBox
 from pathlib import Path
 from typing import Any
 import base64
-
+import datetime
+from plotly.io import write_image
 
 
 @ensure_annotations
@@ -127,3 +128,15 @@ def get_size(path: Path) -> str:
 
 
 
+
+
+def save_figure_with_timestamp(fig, prefix="figure"):
+    '''Saves the given plotly figure with a timestamped filename.'''
+    # Get the current timestamp
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = f"{prefix}_{timestamp}.png"
+    
+    # Save the figure
+    write_image(fig, filename)
+    
+    logger.info(f"Figure saved as: {filename}")

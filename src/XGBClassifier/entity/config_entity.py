@@ -26,5 +26,14 @@ class TrainingConfig:
     cv: int
     training_data: Path
     model_save_filepath: Path
+    stratify: str
+    test_size: float
+    random_state : int
 
 
+
+@dataclass(frozen=True)
+class EvaluationConfig:
+    model_save_filepath: Path
+    local_data_file: Path
+    

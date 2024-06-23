@@ -2,7 +2,7 @@ from XGBClassifier.constants import *
 import os
 from pathlib import Path
 from XGBClassifier.utils.common import read_yaml, create_directories
-from XGBClassifier.entity.config_entity import (DataIngestionConfig, PrepareBaseModelConfig, TrainingConfig)
+from XGBClassifier.entity.config_entity import (DataIngestionConfig, PrepareBaseModelConfig, TrainingConfig, EvaluationConfig)
 
 
 
@@ -65,5 +65,21 @@ class ConfigurationManager:
             training_data=Path(training_data),
             cv=params.cv,
             scoring=params.scoring,
+            stratify=params.stratify,
+            test_size=params.test_size,
+            random_state=params.random_state,
         )
         return training_config
+    
+    
+    
+    
+    def get_validation_config(self) -> EvaluationConfig:
+        
+        config = self.config.evaluation
+        eval_config = EvaluationConfig(
+            model_save_filepath=config.model_save_filepath,
+            local_data_file=config.local_data_file,
+            
+        )
+        return eval_config

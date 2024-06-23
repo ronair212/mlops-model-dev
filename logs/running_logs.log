@@ -933,3 +933,398 @@ x==========x]
 [2024-06-22 18:38:44,917: INFO: main: >>>>>> stage Train and save model completed <<<<<<
 
 x==========x]
+[2024-06-22 19:03:51,361: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 19:03:51,365: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 19:03:51,369: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 19:03:51,373: INFO: common: created directory at: artifacts]
+[2024-06-22 19:03:51,377: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 19:03:55,699: INFO: data_ingestion:  file from url https://drive.google.com/uc?/export=download&id=1RmDs2j3QcY05ixoV1-ACmxmnM5xdmiGF downloaded and saved at path artifacts/data_ingestion/card_transdata.csv]
+[2024-06-22 19:03:55,713: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 19:03:55,713: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 19:03:55,713: INFO: main: *******************]
+[2024-06-22 19:03:55,714: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 19:03:55,717: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 19:03:55,719: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 19:03:55,720: INFO: common: created directory at: artifacts]
+[2024-06-22 19:03:55,723: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 19:03:55,724: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 19:03:55,724: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 19:03:55,725: INFO: main: *******************]
+[2024-06-22 19:03:55,726: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-22 19:03:55,728: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 19:03:55,731: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 19:03:55,732: INFO: common: created directory at: artifacts]
+[2024-06-22 19:03:55,734: INFO: common: created directory at: artifacts/training]
+[2024-06-22 19:03:55,735: ERROR: main: TrainingConfig.__init__() missing 2 required positional arguments: 'stratify' and 'test_size']
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 38, in <module>
+    obj.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 16, in main
+    training_config = config.get_training_config()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/config_mngr/configuration_manager.py", line 63, in get_training_config
+    training_config = TrainingConfig(
+TypeError: TrainingConfig.__init__() missing 2 required positional arguments: 'stratify' and 'test_size'
+[2024-06-22 19:04:55,013: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 19:04:55,016: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 19:04:55,018: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 19:04:55,020: INFO: common: created directory at: artifacts]
+[2024-06-22 19:04:55,022: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 19:04:55,023: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-22 19:04:55,025: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 19:04:55,025: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 19:04:55,025: INFO: main: *******************]
+[2024-06-22 19:04:55,026: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 19:04:55,028: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 19:04:55,031: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 19:04:55,032: INFO: common: created directory at: artifacts]
+[2024-06-22 19:04:55,033: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 19:04:55,033: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 19:04:55,033: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 19:04:55,033: INFO: main: *******************]
+[2024-06-22 19:04:55,034: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-22 19:04:55,036: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 19:04:55,041: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 19:04:55,041: INFO: common: created directory at: artifacts]
+[2024-06-22 19:04:55,042: INFO: common: created directory at: artifacts/training]
+[2024-06-22 19:04:55,983: ERROR: main: 'TrainingConfig' object has no attribute 'random_state']
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 38, in <module>
+    obj.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 19, in main
+    training.train(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 40, in train
+    X_train , X_test ,y_train , y_test  = self.train_valid_generator()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 21, in train_valid_generator
+    X_train , X_test ,y_train , y_test = train_test_split(X,y,test_size = self.config.test_size ,random_state =self.config.random_state  ,stratify=self.config.stratify)
+AttributeError: 'TrainingConfig' object has no attribute 'random_state'
+[2024-06-22 19:05:46,012: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 19:05:46,015: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 19:05:46,017: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 19:05:46,019: INFO: common: created directory at: artifacts]
+[2024-06-22 19:05:46,020: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 19:05:46,022: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-22 19:05:46,024: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 19:05:46,024: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 19:05:46,025: INFO: main: *******************]
+[2024-06-22 19:05:46,025: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 19:05:46,027: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 19:05:46,030: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 19:05:46,030: INFO: common: created directory at: artifacts]
+[2024-06-22 19:05:46,031: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 19:05:46,031: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 19:05:46,032: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 19:05:46,032: INFO: main: *******************]
+[2024-06-22 19:05:46,032: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-22 19:05:46,036: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 19:05:46,037: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 19:05:46,038: INFO: common: created directory at: artifacts]
+[2024-06-22 19:05:46,039: INFO: common: created directory at: artifacts/training]
+[2024-06-22 19:05:46,039: ERROR: main: TrainingConfig.__init__() got an unexpected keyword argument 'random_state']
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 38, in <module>
+    obj.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 16, in main
+    training_config = config.get_training_config()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/config_mngr/configuration_manager.py", line 63, in get_training_config
+    training_config = TrainingConfig(
+TypeError: TrainingConfig.__init__() got an unexpected keyword argument 'random_state'
+[2024-06-22 19:08:44,289: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 19:08:44,291: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 19:08:44,293: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 19:08:44,295: INFO: common: created directory at: artifacts]
+[2024-06-22 19:08:44,296: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 19:08:44,297: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-22 19:08:44,298: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 19:08:44,298: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 19:08:44,299: INFO: main: *******************]
+[2024-06-22 19:08:44,299: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 19:08:44,301: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 19:08:44,303: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 19:08:44,304: INFO: common: created directory at: artifacts]
+[2024-06-22 19:08:44,305: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 19:08:44,305: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 19:08:44,305: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 19:08:44,305: INFO: main: *******************]
+[2024-06-22 19:08:44,305: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-22 19:08:44,308: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 19:08:44,310: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 19:08:44,311: INFO: common: created directory at: artifacts]
+[2024-06-22 19:08:44,312: INFO: common: created directory at: artifacts/training]
+[2024-06-22 19:08:45,192: ERROR: main: The 'stratify' parameter of train_test_split must be an array-like or None. Got 'y' instead.]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 38, in <module>
+    obj.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 19, in main
+    training.train(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 40, in train
+    X_train , X_test ,y_train , y_test  = self.train_valid_generator()
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 21, in train_valid_generator
+    X_train , X_test ,y_train , y_test = train_test_split(X,y,test_size = self.config.test_size ,random_state =self.config.random_state  ,stratify=self.config.stratify)
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 203, in wrapper
+    validate_parameter_constraints(
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'stratify' parameter of train_test_split must be an array-like or None. Got 'y' instead.
+[2024-06-22 19:11:26,363: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 19:11:26,365: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 19:11:26,368: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 19:11:26,369: INFO: common: created directory at: artifacts]
+[2024-06-22 19:11:26,369: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 19:11:26,370: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-22 19:11:26,372: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 19:11:26,372: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 19:11:26,372: INFO: main: *******************]
+[2024-06-22 19:11:26,372: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 19:11:26,376: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 19:11:26,377: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 19:11:26,380: INFO: common: created directory at: artifacts]
+[2024-06-22 19:11:26,381: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 19:11:26,381: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 19:11:26,381: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 19:11:26,382: INFO: main: *******************]
+[2024-06-22 19:11:26,382: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-22 19:11:26,384: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 19:11:26,387: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 19:11:26,387: INFO: common: created directory at: artifacts]
+[2024-06-22 19:11:26,388: INFO: common: created directory at: artifacts/training]
+[2024-06-22 19:11:27,649: INFO: training: Model training and cross validation initiated.]
+[2024-06-22 19:13:17,737: INFO: training: Cross Validation Scores: [0.99063215 0.98941648 0.9902746  0.98820164 0.98905971]]
+[2024-06-22 19:13:17,738: INFO: training: Scores Mean:  0.9895169155985206]
+[2024-06-22 19:13:17,739: INFO: training: Scores Standard Deviation: 0.0008679747406873597]
+[2024-06-22 19:13:47,031: INFO: training: Model saved in path artifacts/training/model.pkl.]
+[2024-06-22 19:13:47,032: INFO: main: >>>>>> stage Train and save model completed <<<<<<
+
+x==========x]
+[2024-06-22 19:43:11,275: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 19:43:11,279: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 19:43:11,283: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 19:43:11,283: INFO: common: created directory at: artifacts]
+[2024-06-22 19:43:11,284: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 19:43:11,285: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-22 19:43:11,286: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 19:43:11,286: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 19:43:11,286: INFO: main: *******************]
+[2024-06-22 19:43:11,287: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 19:43:11,290: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 19:43:11,292: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 19:43:11,292: INFO: common: created directory at: artifacts]
+[2024-06-22 19:43:11,293: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 19:43:11,293: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 19:43:11,293: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 19:43:11,294: INFO: main: *******************]
+[2024-06-22 19:43:11,294: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-22 19:43:11,297: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 19:43:11,299: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 19:43:11,300: INFO: common: created directory at: artifacts]
+[2024-06-22 19:43:11,301: INFO: common: created directory at: artifacts/training]
+[2024-06-22 19:43:12,694: INFO: training: Model training and cross validation initiated.]
+[2024-06-22 19:44:57,939: INFO: training: Cross Validation Scores: [0.99063215 0.98941648 0.9902746  0.98820164 0.98905971]]
+[2024-06-22 19:44:57,940: INFO: training: Scores Mean:  0.9895169155985206]
+[2024-06-22 19:44:57,940: INFO: training: Scores Standard Deviation: 0.0008679747406873597]
+[2024-06-22 19:45:21,836: INFO: training: Model saved in path artifacts/training/model.pkl.]
+[2024-06-22 19:45:21,837: INFO: main: >>>>>> stage Train and save model completed <<<<<<
+
+x==========x]
+[2024-06-22 19:45:21,837: INFO: main: *******************]
+[2024-06-22 19:45:21,837: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2024-06-22 19:45:21,837: ERROR: main: name 'EvaluationPipeline' is not defined]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 51, in <module>
+    model_evalution = EvaluationPipeline()
+NameError: name 'EvaluationPipeline' is not defined
+[2024-06-22 19:52:25,482: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 19:52:25,489: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 19:52:25,493: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 19:52:25,494: INFO: common: created directory at: artifacts]
+[2024-06-22 19:52:25,495: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 19:52:25,497: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-22 19:52:25,500: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 19:52:25,500: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 19:52:25,501: INFO: main: *******************]
+[2024-06-22 19:52:25,502: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 19:52:25,506: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 19:52:25,509: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 19:52:25,511: INFO: common: created directory at: artifacts]
+[2024-06-22 19:52:25,513: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 19:52:25,513: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 19:52:25,513: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 19:52:25,514: INFO: main: *******************]
+[2024-06-22 19:52:25,514: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-22 19:52:25,519: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 19:52:25,522: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 19:52:25,523: INFO: common: created directory at: artifacts]
+[2024-06-22 19:52:25,527: INFO: common: created directory at: artifacts/training]
+[2024-06-22 19:52:27,250: INFO: training: Model training and cross validation initiated.]
+[2024-06-22 19:54:13,200: INFO: training: Cross Validation Scores: [0.99063215 0.98941648 0.9902746  0.98820164 0.98905971]]
+[2024-06-22 19:54:13,203: INFO: training: Scores Mean:  0.9895169155985206]
+[2024-06-22 19:54:13,203: INFO: training: Scores Standard Deviation: 0.0008679747406873597]
+[2024-06-22 19:54:37,229: INFO: training: Model saved in path artifacts/training/model.pkl.]
+[2024-06-22 19:54:37,232: INFO: main: >>>>>> stage Train and save model completed <<<<<<
+
+x==========x]
+[2024-06-22 19:54:37,232: INFO: main: *******************]
+[2024-06-22 19:54:37,232: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2024-06-22 19:54:37,232: ERROR: main: name 'model_evaluation' is not defined]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 52, in <module>
+    model_evalution.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_04_evaluation.py", line 15, in main
+    model_evaluation(xgb)
+NameError: name 'model_evaluation' is not defined
+[2024-06-22 19:57:30,148: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 19:57:30,152: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 19:57:30,156: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 19:57:30,157: INFO: common: created directory at: artifacts]
+[2024-06-22 19:57:30,159: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 19:57:30,160: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-22 19:57:30,161: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 19:57:30,161: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 19:57:30,162: INFO: main: *******************]
+[2024-06-22 19:57:30,162: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 19:57:30,165: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 19:57:30,167: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 19:57:30,173: INFO: common: created directory at: artifacts]
+[2024-06-22 19:57:30,173: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 19:57:30,174: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 19:57:30,174: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 19:57:30,174: INFO: main: *******************]
+[2024-06-22 19:57:30,175: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-22 19:57:30,177: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 19:57:30,180: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 19:57:30,181: INFO: common: created directory at: artifacts]
+[2024-06-22 19:57:30,181: INFO: common: created directory at: artifacts/training]
+[2024-06-22 19:57:31,449: INFO: training: Model training and cross validation initiated.]
+[2024-06-22 19:59:17,079: INFO: training: Cross Validation Scores: [0.99063215 0.98941648 0.9902746  0.98820164 0.98905971]]
+[2024-06-22 19:59:17,080: INFO: training: Scores Mean:  0.9895169155985206]
+[2024-06-22 19:59:17,081: INFO: training: Scores Standard Deviation: 0.0008679747406873597]
+[2024-06-22 19:59:41,565: INFO: training: Model saved in path artifacts/training/model.pkl.]
+[2024-06-22 19:59:41,566: INFO: main: >>>>>> stage Train and save model completed <<<<<<
+
+x==========x]
+[2024-06-22 19:59:41,566: INFO: main: *******************]
+[2024-06-22 19:59:41,566: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2024-06-22 19:59:41,567: ERROR: main: name 'model_evaluation' is not defined]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 52, in <module>
+    model_evalution.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_04_evaluation.py", line 17, in main
+    model_evaluation(xgb)
+NameError: name 'model_evaluation' is not defined
+[2024-06-22 20:00:43,869: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 20:00:43,872: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 20:00:43,876: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 20:00:43,877: INFO: common: created directory at: artifacts]
+[2024-06-22 20:00:43,882: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 20:00:43,883: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-22 20:00:43,885: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 20:00:43,885: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 20:00:43,886: INFO: main: *******************]
+[2024-06-22 20:00:43,886: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 20:00:43,890: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 20:00:43,892: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 20:00:43,893: INFO: common: created directory at: artifacts]
+[2024-06-22 20:00:43,894: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 20:00:43,895: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 20:00:43,895: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 20:00:43,895: INFO: main: *******************]
+[2024-06-22 20:00:43,895: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-22 20:00:43,898: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 20:00:43,901: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 20:00:43,903: INFO: common: created directory at: artifacts]
+[2024-06-22 20:00:43,904: INFO: common: created directory at: artifacts/training]
+[2024-06-22 20:00:45,181: INFO: training: Model training and cross validation initiated.]
+[2024-06-22 20:02:59,773: INFO: training: Cross Validation Scores: [0.99063215 0.98941648 0.9902746  0.98820164 0.98905971]]
+[2024-06-22 20:02:59,773: INFO: training: Scores Mean:  0.9895169155985206]
+[2024-06-22 20:02:59,775: INFO: training: Scores Standard Deviation: 0.0008679747406873597]
+[2024-06-22 20:03:24,197: INFO: training: Model saved in path artifacts/training/model.pkl.]
+[2024-06-22 20:03:24,198: INFO: main: >>>>>> stage Train and save model completed <<<<<<
+
+x==========x]
+[2024-06-22 20:03:24,202: INFO: main: *******************]
+[2024-06-22 20:03:24,205: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2024-06-22 20:03:24,207: ERROR: main: Evaluation.__init__() missing 1 required positional argument: 'config']
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 52, in <module>
+    model_evalution.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_04_evaluation.py", line 16, in main
+    evalu = Evaluation()
+TypeError: Evaluation.__init__() missing 1 required positional argument: 'config'
+[2024-06-22 20:03:58,453: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-22 20:03:58,457: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 20:03:58,460: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 20:03:58,461: INFO: common: created directory at: artifacts]
+[2024-06-22 20:03:58,463: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-22 20:03:58,464: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-22 20:03:58,467: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-22 20:03:58,467: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-22 20:03:58,469: INFO: main: *******************]
+[2024-06-22 20:03:58,470: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-22 20:03:58,475: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 20:03:58,478: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 20:03:58,479: INFO: common: created directory at: artifacts]
+[2024-06-22 20:03:58,481: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-22 20:03:58,482: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-22 20:03:58,484: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-22 20:03:58,485: INFO: main: *******************]
+[2024-06-22 20:03:58,487: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-22 20:03:58,493: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-22 20:03:58,496: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-22 20:03:58,498: INFO: common: created directory at: artifacts]
+[2024-06-22 20:03:58,498: INFO: common: created directory at: artifacts/training]
+[2024-06-22 20:03:59,988: INFO: training: Model training and cross validation initiated.]
+[2024-06-22 20:05:45,885: INFO: training: Cross Validation Scores: [0.99063215 0.98941648 0.9902746  0.98820164 0.98905971]]
+[2024-06-22 20:05:45,886: INFO: training: Scores Mean:  0.9895169155985206]
+[2024-06-22 20:05:45,888: INFO: training: Scores Standard Deviation: 0.0008679747406873597]
+[2024-06-22 20:06:10,071: INFO: training: Model saved in path artifacts/training/model.pkl.]
+[2024-06-22 20:06:10,072: INFO: main: >>>>>> stage Train and save model completed <<<<<<
+
+x==========x]
+[2024-06-22 20:06:10,074: INFO: main: *******************]
+[2024-06-22 20:06:10,075: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2024-06-22 20:06:10,077: ERROR: main: Evaluation.__init__() missing 1 required positional argument: 'config']
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 52, in <module>
+    model_evalution.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_04_evaluation.py", line 16, in main
+    evalu = Evaluation()
+TypeError: Evaluation.__init__() missing 1 required positional argument: 'config'

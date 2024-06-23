@@ -19,3 +19,9 @@ training:
   root_dir: artifacts/training
   model_save_filepath: artifacts/training/model.pkl
   local_data_file: artifacts/data_ingestion/card_transdata.csv
+
+
+
+evaluation:
+  model_save_filepath: artifacts/training/model.pkl
+  local_data_file: artifacts/data_ingestion/card_transdata.csv
