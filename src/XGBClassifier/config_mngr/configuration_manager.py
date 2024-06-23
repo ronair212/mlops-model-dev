@@ -80,6 +80,10 @@ class ConfigurationManager:
         eval_config = EvaluationConfig(
             model_save_filepath=config.model_save_filepath,
             local_data_file=config.local_data_file,
-            
+            mlflow_uri="https://dagshub.com/ronair212/mlops-model-dev.mlflow/",
+            all_params=self.params,
         )
         return eval_config
+    
+    
+    

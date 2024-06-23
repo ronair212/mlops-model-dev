@@ -36,4 +36,6 @@ class TrainingConfig:
 class EvaluationConfig:
     model_save_filepath: Path
     local_data_file: Path
+    mlflow_uri: str
+    all_params: dict
     
