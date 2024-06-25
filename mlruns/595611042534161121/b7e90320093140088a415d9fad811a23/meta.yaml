@@ -1,0 +1,15 @@
+artifact_uri: /home/nair.ro/mlops-model-dev/mlruns/595611042534161121/b7e90320093140088a415d9fad811a23/artifacts
+end_time: 1719294667525
+entry_point_name: ''
+experiment_id: '595611042534161121'
+lifecycle_stage: active
+run_id: b7e90320093140088a415d9fad811a23
+run_name: magnificent-pug-565
+run_uuid: b7e90320093140088a415d9fad811a23
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719294667324
+status: 3
+tags: []
+user_id: ronair212

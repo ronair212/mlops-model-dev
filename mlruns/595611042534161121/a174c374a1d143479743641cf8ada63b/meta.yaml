@@ -1,0 +1,15 @@
+artifact_uri: /home/nair.ro/mlops-model-dev/mlruns/595611042534161121/a174c374a1d143479743641cf8ada63b/artifacts
+end_time: 1719275038323
+entry_point_name: ''
+experiment_id: '595611042534161121'
+lifecycle_stage: active
+run_id: a174c374a1d143479743641cf8ada63b
+run_name: intrigued-crow-473
+run_uuid: a174c374a1d143479743641cf8ada63b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719275037800
+status: 3
+tags: []
+user_id: ronair212

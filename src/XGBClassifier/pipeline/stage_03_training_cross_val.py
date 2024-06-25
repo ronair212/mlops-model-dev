@@ -14,10 +14,13 @@ class ModelTrainingPipeline:
     def main(self , xgb):
         config = ConfigurationManager()
         training_config = config.get_training_config()
-        training = Training(config=training_config)
+        hpo_config = config.get_hyperparameter_optimization_config()
+        
+        training = Training(training_config, hpo_config)
         #print("completed till initializing configs")
         training.train(xgb)
         
+    
 
 
 

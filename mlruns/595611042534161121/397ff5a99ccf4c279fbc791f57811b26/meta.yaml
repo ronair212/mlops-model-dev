@@ -1,0 +1,15 @@
+artifact_uri: /home/nair.ro/mlops-model-dev/mlruns/595611042534161121/397ff5a99ccf4c279fbc791f57811b26/artifacts
+end_time: 1719274760137
+entry_point_name: ''
+experiment_id: '595611042534161121'
+lifecycle_stage: active
+run_id: 397ff5a99ccf4c279fbc791f57811b26
+run_name: polite-auk-984
+run_uuid: 397ff5a99ccf4c279fbc791f57811b26
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719274759965
+status: 3
+tags: []
+user_id: ee2842d33bcd6aae5d0b3f1503e24390721609dd

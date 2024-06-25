@@ -1,0 +1,15 @@
+artifact_uri: /home/nair.ro/mlops-model-dev/mlruns/595611042534161121/43e641f162244af99fdc01f7b06f78ef/artifacts
+end_time: 1719294668176
+entry_point_name: ''
+experiment_id: '595611042534161121'
+lifecycle_stage: active
+run_id: 43e641f162244af99fdc01f7b06f78ef
+run_name: fun-newt-26
+run_uuid: 43e641f162244af99fdc01f7b06f78ef
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719294667947
+status: 3
+tags: []
+user_id: ee2842d33bcd6aae5d0b3f1503e24390721609dd

@@ -1,0 +1,15 @@
+artifact_uri: /home/nair.ro/mlops-model-dev/mlruns/595611042534161121/e95b789087f248b58450205f61e595c1/artifacts
+end_time: 1719274759568
+entry_point_name: ''
+experiment_id: '595611042534161121'
+lifecycle_stage: active
+run_id: e95b789087f248b58450205f61e595c1
+run_name: sedate-bear-280
+run_uuid: e95b789087f248b58450205f61e595c1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719274759396
+status: 3
+tags: []
+user_id: ronair212
