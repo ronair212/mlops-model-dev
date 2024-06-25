@@ -1,0 +1,15 @@
+artifact_uri: /home/nair.ro/mlops-model-dev/mlruns/595611042534161121/910db4cbf0ae4fb1866cf23ae767c22b/artifacts
+end_time: 1719271383256
+entry_point_name: ''
+experiment_id: '595611042534161121'
+lifecycle_stage: active
+run_id: 910db4cbf0ae4fb1866cf23ae767c22b
+run_name: fearless-wolf-157
+run_uuid: 910db4cbf0ae4fb1866cf23ae767c22b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719271382685
+status: 3
+tags: []
+user_id: ee2842d33bcd6aae5d0b3f1503e24390721609dd

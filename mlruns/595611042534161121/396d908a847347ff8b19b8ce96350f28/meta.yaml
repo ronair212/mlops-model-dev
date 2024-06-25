@@ -1,0 +1,15 @@
+artifact_uri: /home/nair.ro/mlops-model-dev/mlruns/595611042534161121/396d908a847347ff8b19b8ce96350f28/artifacts
+end_time: 1719271818434
+entry_point_name: ''
+experiment_id: '595611042534161121'
+lifecycle_stage: active
+run_id: 396d908a847347ff8b19b8ce96350f28
+run_name: gentle-panda-323
+run_uuid: 396d908a847347ff8b19b8ce96350f28
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719271818157
+status: 3
+tags: []
+user_id: ronair212

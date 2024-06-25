@@ -20,7 +20,7 @@ class EvaluationPipeline:
         
         evalu.precision_recall_trade_off(xgb)
         
-        evalu.precision_recall_trade_off(xgb)
+        evalu.roc_auc(xgb)
 
 
 

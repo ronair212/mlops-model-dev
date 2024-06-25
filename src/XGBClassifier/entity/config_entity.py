@@ -39,3 +39,10 @@ class EvaluationConfig:
     mlflow_uri: str
     all_params: dict
     
+    
+@dataclass(frozen=True)
+class MLFlowConfig:
+    experiment_name: str
+    local_tracking_uri: str
+    remote_tracking_uri: str
+    all_params: dict

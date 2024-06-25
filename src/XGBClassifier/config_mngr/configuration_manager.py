@@ -2,7 +2,7 @@ from XGBClassifier.constants import *
 import os
 from pathlib import Path
 from XGBClassifier.utils.common import read_yaml, create_directories
-from XGBClassifier.entity.config_entity import (DataIngestionConfig, PrepareBaseModelConfig, TrainingConfig, EvaluationConfig)
+from XGBClassifier.entity.config_entity import (DataIngestionConfig, PrepareBaseModelConfig, TrainingConfig, EvaluationConfig, MLFlowConfig)
 
 
 
@@ -86,4 +86,13 @@ class ConfigurationManager:
         return eval_config
     
     
-    
+    def get_mlflow_config(self) -> MLFlowConfig:
+        
+        config = self.config.tracking
+        mlflow_config = MLFlowConfig(
+            experiment_name = config.experiment_name,
+            local_tracking_uri = config.local_tracking_uri,
+            remote_tracking_uri = config.remote_tracking_uri,
+            all_params=self.params,
+        )
+        return mlflow_config

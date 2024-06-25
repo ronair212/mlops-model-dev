@@ -25,3 +25,10 @@ training:
 evaluation:
   model_save_filepath: artifacts/training/model.pkl
   local_data_file: artifacts/data_ingestion/card_transdata.csv
+
+
+
+tracking:
+  experiment_name: Default
+  local_tracking_uri: /home/nair.ro/mlops-model-dev/notebooks/mlruns'
+  remote_tracking_uri: https://dagshub.com/ronair212/mlops-model-dev.mlflow'

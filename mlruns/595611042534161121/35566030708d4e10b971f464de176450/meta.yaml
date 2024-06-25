@@ -1,0 +1,15 @@
+artifact_uri: /home/nair.ro/mlops-model-dev/mlruns/595611042534161121/35566030708d4e10b971f464de176450/artifacts
+end_time: 1719271819231
+entry_point_name: ''
+experiment_id: '595611042534161121'
+lifecycle_stage: active
+run_id: 35566030708d4e10b971f464de176450
+run_name: brawny-elk-263
+run_uuid: 35566030708d4e10b971f464de176450
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719271818977
+status: 3
+tags: []
+user_id: ee2842d33bcd6aae5d0b3f1503e24390721609dd
