@@ -1,0 +1,15 @@
+artifact_uri: /home/nair.ro/mlops-model-dev/mlruns/595611042534161121/d2a5b7542a4647cc87489188b178aa9b/artifacts
+end_time: 1719275039311
+entry_point_name: ''
+experiment_id: '595611042534161121'
+lifecycle_stage: active
+run_id: d2a5b7542a4647cc87489188b178aa9b
+run_name: industrious-crab-811
+run_uuid: d2a5b7542a4647cc87489188b178aa9b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719275038823
+status: 3
+tags: []
+user_id: ee2842d33bcd6aae5d0b3f1503e24390721609dd

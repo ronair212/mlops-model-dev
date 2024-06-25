@@ -151,7 +151,7 @@ class Evaluation:
         save_figure_with_timestamp(fig, prefix="roc-auc-curve")
         roc_auc_scores = roc_auc_score(y_test,y_proba[:,1])
         logger.info('Testing ROC-AUC Score: ',roc_auc_score(y_test,y_proba[:,1]))
-        save_json(path=Path("roc_auc_scores.json"), data=roc_auc_scores)
+        #save_json(path=Path("roc_auc_scores.json"), data=roc_auc_scores)
     
     def log_into_mlflow(self):
         mlflow.set_registry_uri(self.config.mlflow_uri)

@@ -8,3 +8,5 @@ scoring : recall
 cv : 5
 test_size : 0.2
 stratify : y
+
+use_hyperopt: true

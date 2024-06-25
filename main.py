@@ -3,7 +3,7 @@ from src.XGBClassifier.pipeline.stage_01_data_ingestion import DataIngestionTrai
 from src.XGBClassifier.pipeline.stage_02_prepare_base_model import PrepareBaseModelTrainingPipeline
 from src.XGBClassifier.pipeline.stage_03_training_cross_val import ModelTrainingPipeline
 from src.XGBClassifier.pipeline.stage_04_evaluation import EvaluationPipeline
-
+from src.XGBClassifier.pipeline.stage_05_mlflow import MLFlowTrackingPipeline
 
 STAGE_NAME = "Data Ingestion stage"
 try:
@@ -49,12 +49,28 @@ try:
    logger.info(f"*******************")
    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
    model_evalution = EvaluationPipeline()
-   model_evalution.main(xgb)
+   model_evalution.main()
    logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
-
 except Exception as e:
-        logger.exception(e)
-        raise e
+   logger.exception(e)
+   raise e
+
+
+
+STAGE_NAME = "MLFlow stage"
+try:
+   logger.info(f"*******************")
+   logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
+   model_tracking = MLFlowTrackingPipeline()
+   model_tracking.main()
+   logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+except Exception as e:
+   logger.exception(e)
+   raise e
+
+
+
+
 
 
 

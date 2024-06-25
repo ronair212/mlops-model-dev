@@ -1,0 +1,15 @@
+artifact_uri: /home/nair.ro/mlops-model-dev/mlruns/595611042534161121/919d90d57b2e4fe2a19f810b8d93d94c/artifacts
+end_time: 1719266457401
+entry_point_name: ''
+experiment_id: '595611042534161121'
+lifecycle_stage: active
+run_id: 919d90d57b2e4fe2a19f810b8d93d94c
+run_name: peaceful-lamb-730
+run_uuid: 919d90d57b2e4fe2a19f810b8d93d94c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719266456915
+status: 3
+tags: []
+user_id: ee2842d33bcd6aae5d0b3f1503e24390721609dd

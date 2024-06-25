@@ -1,0 +1,15 @@
+artifact_uri: /home/nair.ro/mlops-model-dev/mlruns/595611042534161121/41da026e89da4ed5b9584ed71505ddfe/artifacts
+end_time: 1719271382239
+entry_point_name: ''
+experiment_id: '595611042534161121'
+lifecycle_stage: active
+run_id: 41da026e89da4ed5b9584ed71505ddfe
+run_name: inquisitive-bee-113
+run_uuid: 41da026e89da4ed5b9584ed71505ddfe
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719271381742
+status: 3
+tags: []
+user_id: ronair212

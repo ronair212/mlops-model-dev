@@ -1,0 +1,15 @@
+artifact_uri: /home/nair.ro/mlops-model-dev/mlruns/595611042534161121/a17f323c4a61438eafb7c91885bf2351/artifacts
+end_time: 1719270895262
+entry_point_name: ''
+experiment_id: '595611042534161121'
+lifecycle_stage: active
+run_id: a17f323c4a61438eafb7c91885bf2351
+run_name: gregarious-mink-465
+run_uuid: a17f323c4a61438eafb7c91885bf2351
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719270895097
+status: 3
+tags: []
+user_id: ee2842d33bcd6aae5d0b3f1503e24390721609dd

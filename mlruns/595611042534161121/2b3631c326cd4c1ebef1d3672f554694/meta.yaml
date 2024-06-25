@@ -1,0 +1,15 @@
+artifact_uri: /home/nair.ro/mlops-model-dev/mlruns/595611042534161121/2b3631c326cd4c1ebef1d3672f554694/artifacts
+end_time: 1719273775698
+entry_point_name: ''
+experiment_id: '595611042534161121'
+lifecycle_stage: active
+run_id: 2b3631c326cd4c1ebef1d3672f554694
+run_name: clumsy-zebra-517
+run_uuid: 2b3631c326cd4c1ebef1d3672f554694
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719273775328
+status: 3
+tags: []
+user_id: ronair212

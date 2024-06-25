@@ -1,0 +1,15 @@
+artifact_uri: /home/nair.ro/mlops-model-dev/mlruns/595611042534161121/ea98b400a9454dc089d4e38671ce9e2c/artifacts
+end_time: 1719296351888
+entry_point_name: ''
+experiment_id: '595611042534161121'
+lifecycle_stage: active
+run_id: ea98b400a9454dc089d4e38671ce9e2c
+run_name: lyrical-slug-303
+run_uuid: ea98b400a9454dc089d4e38671ce9e2c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719296351677
+status: 3
+tags: []
+user_id: ee2842d33bcd6aae5d0b3f1503e24390721609dd
