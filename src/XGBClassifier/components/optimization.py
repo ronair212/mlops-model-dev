@@ -10,7 +10,11 @@ def hyperparameter_optimization(X_train, y_train, X_test, y_test, hpo_config):
         model = xgb.XGBClassifier(
             max_depth=int(params['max_depth']),
             gamma=params['gamma'],
-       
+            n_estimators=int(params['n_estimators']),
+            learning_rate=params['learning_rate'],
+            subsample=params['subsample'],
+            colsample_bytree=params['colsample_bytree'],
+            random_state=44
         )
         
         model.fit(X_train, y_train)
@@ -18,36 +22,24 @@ def hyperparameter_optimization(X_train, y_train, X_test, y_test, hpo_config):
         recall = recall_score(y_test, preds)
         
         return {'loss': -recall, 'status': STATUS_OK}
-    '''
+    
     param_space = {
-        'n_estimators': hp.quniform('n_estimators', hpo_config.params_space['n_estimators']['min'], hpo_config.params_space['n_estimators']['max'], hpo_config.params_space['n_estimators']['step']),
-        'max_depth': hp.quniform('max_depth', hpo_config.params_space['max_depth']['min'], hpo_config.params_space['max_depth']['max'], hpo_config.params_space['max_depth']['step']),
-        'learning_rate': hp.uniform('learning_rate', hpo_config.params_space['learning_rate']['min'], hpo_config.params_space['learning_rate']['max']),
-        'subsample': hp.uniform('subsample', hpo_config.params_space['subsample']['min'], hpo_config.params_space['subsample']['max']),
-        'colsample_bytree': hp.uniform('colsample_bytree', hpo_config.params_space['colsample_bytree']['min'], hpo_config.params_space['colsample_bytree']['max']),
-        'gamma': hp.uniform('gamma', hpo_config.params_space['gamma']['min'], hpo_config.params_space['gamma']['max'])
+        'max_depth': hp.choice("max_depth", np.arange(1, 20, 1, dtype=int)),
+        'gamma': hp.uniform("gamma", 0, 10),
+        'n_estimators': hp.choice("n_estimators", np.arange(100, 1000, 10, dtype=int)),
+        'learning_rate': hp.uniform("learning_rate", 0.01, 0.2),
+        'subsample': hp.uniform("subsample", 0.5, 1),
+        'colsample_bytree': hp.uniform("colsample_bytree", 0.5, 1)
     }
-
-    # Ensure param_space is a plain dictionary
-    param_space = {k: v for k, v in param_space.items()}
-    '''
-    
-    param_space = {
-            'max_depth': hp.choice("max_depth", np.arange(1,20,1,dtype=int)),
-            'gamma'    : hp.uniform("gamma", 0, 10e1),
-            'seed' : 44
-        }
-    
     
     trials = Trials()
     
     best = fmin(fn=objective,
                 space=param_space,
                 algo=tpe.suggest,
-                max_evals=500,
-                trials=trials,
-                )
-
+                max_evals=2,
+                trials=trials)
+    
     best_params = {
         'n_estimators': int(best['n_estimators']),
         'max_depth': int(best['max_depth']),

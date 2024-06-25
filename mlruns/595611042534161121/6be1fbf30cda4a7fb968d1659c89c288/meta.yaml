@@ -1,0 +1,15 @@
+artifact_uri: /home/nair.ro/mlops-model-dev/mlruns/595611042534161121/6be1fbf30cda4a7fb968d1659c89c288/artifacts
+end_time: 1719334310111
+entry_point_name: ''
+experiment_id: '595611042534161121'
+lifecycle_stage: active
+run_id: 6be1fbf30cda4a7fb968d1659c89c288
+run_name: suave-ox-299
+run_uuid: 6be1fbf30cda4a7fb968d1659c89c288
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719334309515
+status: 3
+tags: []
+user_id: ronair212

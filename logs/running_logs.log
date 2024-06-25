@@ -5567,3 +5567,836 @@ x==========x]
 [2024-06-25 03:35:30,767: INFO: tpe: TPE using 26/26 trials with best loss -0.991648]
 [2024-06-25 03:35:34,171: INFO: tpe: build_posterior_wrapper took 0.001534 seconds]
 [2024-06-25 03:35:34,172: INFO: tpe: TPE using 27/27 trials with best loss -0.991648]
+[2024-06-25 12:17:56,762: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-25 12:17:56,767: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:17:56,771: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:17:56,779: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:17:56,780: INFO: common: created directory at: artifacts]
+[2024-06-25 12:17:56,782: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-25 12:17:56,782: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-25 12:17:56,785: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-25 12:17:56,786: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-25 12:17:56,795: INFO: main: *******************]
+[2024-06-25 12:17:56,795: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-25 12:17:56,800: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:17:56,804: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:17:56,808: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:17:56,809: INFO: common: created directory at: artifacts]
+[2024-06-25 12:17:56,811: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-25 12:17:56,811: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-25 12:17:56,813: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-25 12:17:56,815: INFO: main: *******************]
+[2024-06-25 12:17:56,817: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-25 12:17:56,822: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:17:56,824: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:17:56,828: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:17:56,829: INFO: common: created directory at: artifacts]
+[2024-06-25 12:17:56,831: INFO: common: created directory at: artifacts/training]
+[2024-06-25 12:17:58,081: INFO: training: Model training initiated.]
+[2024-06-25 12:17:58,082: INFO: training: Hyperparameter optimization using Hyperopt initiated.]
+[2024-06-25 12:17:58,088: ERROR: main: Box can only compare two boxes or a box and a dictionary.]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 38, in <module>
+    obj.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 21, in main
+    training.train(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 42, in train
+    best_model, best_params, best_metrics = hyperparameter_optimization(X_train, y_train, X_test, y_test, self.hpo_config)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/optimization.py", line 37, in hyperparameter_optimization
+    best_params = fmin(fn=objective, space=space, algo=tpe.suggest, max_evals=hpo_config.max_evals, trials=trials, rstate=np.random.RandomState(hpo_config.random_state))
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/fmin.py", line 540, in fmin
+    return trials.fmin(
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/base.py", line 671, in fmin
+    return fmin(
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/fmin.py", line 586, in fmin
+    rval.exhaust()
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/fmin.py", line 364, in exhaust
+    self.run(self.max_evals - n_done, block_until_done=self.asynchronous)
+  File "box/box.py", line 316, in box.box.Box.__sub__
+box.exceptions.BoxError: Box can only compare two boxes or a box and a dictionary.
+[2024-06-25 12:19:45,673: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-25 12:19:45,679: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:19:45,683: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:19:45,689: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:19:45,691: INFO: common: created directory at: artifacts]
+[2024-06-25 12:19:45,694: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-25 12:19:45,695: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-25 12:19:45,698: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-25 12:19:45,698: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-25 12:19:45,700: INFO: main: *******************]
+[2024-06-25 12:19:45,705: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-25 12:19:45,710: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:19:45,713: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:19:45,720: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:19:45,722: INFO: common: created directory at: artifacts]
+[2024-06-25 12:19:45,724: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-25 12:19:45,725: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-25 12:19:45,726: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-25 12:19:45,730: INFO: main: *******************]
+[2024-06-25 12:19:45,732: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-25 12:19:45,737: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:19:45,740: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:19:45,746: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:19:45,747: INFO: common: created directory at: artifacts]
+[2024-06-25 12:19:45,769: INFO: common: created directory at: artifacts/training]
+[2024-06-25 12:19:47,165: INFO: training: Model training initiated.]
+[2024-06-25 12:19:47,166: INFO: training: Hyperparameter optimization using Hyperopt initiated.]
+[2024-06-25 12:19:47,169: ERROR: main: int() argument must be a string, a bytes-like object or a real number, not 'ConfigBox']
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 38, in <module>
+    obj.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 21, in main
+    training.train(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 42, in train
+    best_model, best_params, best_metrics = hyperparameter_optimization(X_train, y_train, X_test, y_test, self.hpo_config)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/optimization.py", line 37, in hyperparameter_optimization
+    best_params = fmin(fn=objective, space=space, algo=tpe.suggest, max_evals=int(hpo_config.max_evals), trials=trials, rstate=np.random.RandomState(int(hpo_config.random_state)))
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'ConfigBox'
+[2024-06-25 12:20:57,786: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-25 12:20:57,791: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:20:57,796: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:20:57,816: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:20:57,817: INFO: common: created directory at: artifacts]
+[2024-06-25 12:20:57,818: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-25 12:20:57,826: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-25 12:20:57,828: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-25 12:20:57,830: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-25 12:20:57,832: INFO: main: *******************]
+[2024-06-25 12:20:57,835: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-25 12:20:57,841: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:20:57,863: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:20:57,870: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:20:57,871: INFO: common: created directory at: artifacts]
+[2024-06-25 12:20:57,873: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-25 12:20:57,874: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-25 12:20:57,876: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-25 12:20:57,878: INFO: main: *******************]
+[2024-06-25 12:20:57,881: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-25 12:20:57,890: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:20:57,893: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:20:57,902: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:20:57,908: INFO: common: created directory at: artifacts]
+[2024-06-25 12:20:57,928: INFO: common: created directory at: artifacts/training]
+[2024-06-25 12:20:59,673: INFO: training: Model training initiated.]
+[2024-06-25 12:20:59,673: INFO: training: Hyperparameter optimization using Hyperopt initiated.]
+[2024-06-25 12:20:59,675: ERROR: main: int() argument must be a string, a bytes-like object or a real number, not 'ConfigBox']
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 38, in <module>
+    obj.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 21, in main
+    training.train(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 42, in train
+    best_model, best_params, best_metrics = hyperparameter_optimization(X_train, y_train, X_test, y_test, self.hpo_config)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/optimization.py", line 37, in hyperparameter_optimization
+    max_evals = int(hpo_config.max_evals)
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'ConfigBox'
+[2024-06-25 12:25:30,463: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-25 12:25:30,472: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:25:30,480: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:25:30,488: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:25:30,491: INFO: common: created directory at: artifacts]
+[2024-06-25 12:25:30,496: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-25 12:25:30,504: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-25 12:25:30,516: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-25 12:25:30,519: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-25 12:25:30,532: INFO: main: *******************]
+[2024-06-25 12:25:30,536: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-25 12:25:30,544: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:25:30,548: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:25:30,567: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:25:30,569: INFO: common: created directory at: artifacts]
+[2024-06-25 12:25:30,571: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-25 12:25:30,576: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-25 12:25:30,578: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-25 12:25:30,582: INFO: main: *******************]
+[2024-06-25 12:25:30,583: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-25 12:25:30,592: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:25:30,596: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:25:30,605: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:25:30,608: INFO: common: created directory at: artifacts]
+[2024-06-25 12:25:30,616: INFO: common: created directory at: artifacts/training]
+[2024-06-25 12:25:32,167: INFO: training: Model training initiated.]
+[2024-06-25 12:25:32,167: INFO: training: Hyperparameter optimization using Hyperopt initiated.]
+[2024-06-25 12:25:32,176: ERROR: main: Box can only compare two boxes or a box and a dictionary.]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 38, in <module>
+    obj.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 21, in main
+    training.train(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 42, in train
+    best_model, best_params, best_metrics = hyperparameter_optimization(X_train, y_train, X_test, y_test, self.hpo_config)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/optimization.py", line 40, in hyperparameter_optimization
+    best = fmin(fn=objective,
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/fmin.py", line 540, in fmin
+    return trials.fmin(
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/base.py", line 671, in fmin
+    return fmin(
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/fmin.py", line 586, in fmin
+    rval.exhaust()
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/fmin.py", line 364, in exhaust
+    self.run(self.max_evals - n_done, block_until_done=self.asynchronous)
+  File "box/box.py", line 316, in box.box.Box.__sub__
+box.exceptions.BoxError: Box can only compare two boxes or a box and a dictionary.
+[2024-06-25 12:27:58,897: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-25 12:27:58,909: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:27:58,916: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:27:58,938: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:27:58,943: INFO: common: created directory at: artifacts]
+[2024-06-25 12:27:58,951: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-25 12:27:58,959: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-25 12:27:58,972: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-25 12:27:58,981: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-25 12:27:58,991: INFO: main: *******************]
+[2024-06-25 12:27:59,006: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-25 12:27:59,033: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:27:59,062: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:27:59,085: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:27:59,111: INFO: common: created directory at: artifacts]
+[2024-06-25 12:27:59,124: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-25 12:27:59,144: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-25 12:27:59,146: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-25 12:27:59,160: INFO: main: *******************]
+[2024-06-25 12:27:59,174: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-25 12:27:59,193: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:27:59,197: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:27:59,213: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:27:59,221: INFO: common: created directory at: artifacts]
+[2024-06-25 12:27:59,235: INFO: common: created directory at: artifacts/training]
+[2024-06-25 12:28:00,853: INFO: training: Model training initiated.]
+[2024-06-25 12:28:00,853: INFO: training: Hyperparameter optimization using Hyperopt initiated.]
+[2024-06-25 12:28:00,871: ERROR: main: Box can only compare two boxes or a box and a dictionary.]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 38, in <module>
+    obj.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 21, in main
+    training.train(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 42, in train
+    best_model, best_params, best_metrics = hyperparameter_optimization(X_train, y_train, X_test, y_test, self.hpo_config)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/optimization.py", line 37, in hyperparameter_optimization
+    best = fmin(fn=objective,
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/fmin.py", line 540, in fmin
+    return trials.fmin(
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/base.py", line 671, in fmin
+    return fmin(
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/fmin.py", line 586, in fmin
+    rval.exhaust()
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/fmin.py", line 364, in exhaust
+    self.run(self.max_evals - n_done, block_until_done=self.asynchronous)
+  File "box/box.py", line 316, in box.box.Box.__sub__
+box.exceptions.BoxError: Box can only compare two boxes or a box and a dictionary.
+[2024-06-25 12:29:23,374: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-25 12:29:23,379: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:29:23,383: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:29:23,387: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:29:23,389: INFO: common: created directory at: artifacts]
+[2024-06-25 12:29:23,390: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-25 12:29:23,391: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-25 12:29:23,395: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-25 12:29:23,395: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-25 12:29:23,397: INFO: main: *******************]
+[2024-06-25 12:29:23,398: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-25 12:29:23,403: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:29:23,405: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:29:23,410: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:29:23,411: INFO: common: created directory at: artifacts]
+[2024-06-25 12:29:23,412: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-25 12:29:23,413: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-25 12:29:23,414: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-25 12:29:23,416: INFO: main: *******************]
+[2024-06-25 12:29:23,417: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-25 12:29:23,423: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:29:23,426: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:29:23,431: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:29:23,433: INFO: common: created directory at: artifacts]
+[2024-06-25 12:29:23,434: INFO: common: created directory at: artifacts/training]
+[2024-06-25 12:29:24,783: INFO: training: Model training initiated.]
+[2024-06-25 12:29:24,784: INFO: training: Hyperparameter optimization using Hyperopt initiated.]
+[2024-06-25 12:29:24,792: ERROR: main: Box can only compare two boxes or a box and a dictionary.]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 38, in <module>
+    obj.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 21, in main
+    training.train(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 42, in train
+    best_model, best_params, best_metrics = hyperparameter_optimization(X_train, y_train, X_test, y_test, self.hpo_config)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/optimization.py", line 33, in hyperparameter_optimization
+    best = fmin(fn=objective,
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/fmin.py", line 540, in fmin
+    return trials.fmin(
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/base.py", line 671, in fmin
+    return fmin(
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/fmin.py", line 586, in fmin
+    rval.exhaust()
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/fmin.py", line 364, in exhaust
+    self.run(self.max_evals - n_done, block_until_done=self.asynchronous)
+  File "box/box.py", line 316, in box.box.Box.__sub__
+box.exceptions.BoxError: Box can only compare two boxes or a box and a dictionary.
+[2024-06-25 12:30:42,997: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-25 12:30:43,001: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:30:43,004: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:30:43,008: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:30:43,009: INFO: common: created directory at: artifacts]
+[2024-06-25 12:30:43,010: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-25 12:30:43,012: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-25 12:30:43,013: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-25 12:30:43,013: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-25 12:30:43,015: INFO: main: *******************]
+[2024-06-25 12:30:43,020: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-25 12:30:43,024: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:30:43,027: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:30:43,031: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:30:43,032: INFO: common: created directory at: artifacts]
+[2024-06-25 12:30:43,033: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-25 12:30:43,035: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-25 12:30:43,036: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-25 12:30:43,038: INFO: main: *******************]
+[2024-06-25 12:30:43,038: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-25 12:30:43,042: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:30:43,045: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:30:43,048: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:30:43,050: INFO: common: created directory at: artifacts]
+[2024-06-25 12:30:43,053: INFO: common: created directory at: artifacts/training]
+[2024-06-25 12:30:44,298: INFO: training: Model training initiated.]
+[2024-06-25 12:30:44,298: INFO: training: Hyperparameter optimization using Hyperopt initiated.]
+[2024-06-25 12:30:44,311: ERROR: main: Box can only compare two boxes or a box and a dictionary.]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 38, in <module>
+    obj.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 21, in main
+    training.train(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 42, in train
+    best_model, best_params, best_metrics = hyperparameter_optimization(X_train, y_train, X_test, y_test, self.hpo_config)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/optimization.py", line 33, in hyperparameter_optimization
+    best = fmin(fn=objective,
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/fmin.py", line 540, in fmin
+    return trials.fmin(
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/base.py", line 671, in fmin
+    return fmin(
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/fmin.py", line 586, in fmin
+    rval.exhaust()
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/fmin.py", line 364, in exhaust
+    self.run(self.max_evals - n_done, block_until_done=self.asynchronous)
+  File "box/box.py", line 316, in box.box.Box.__sub__
+box.exceptions.BoxError: Box can only compare two boxes or a box and a dictionary.
+[2024-06-25 12:32:04,940: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-25 12:32:04,944: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:32:04,947: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:32:04,951: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:32:04,952: INFO: common: created directory at: artifacts]
+[2024-06-25 12:32:04,953: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-25 12:32:04,954: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-25 12:32:04,956: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-25 12:32:04,956: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-25 12:32:04,957: INFO: main: *******************]
+[2024-06-25 12:32:04,959: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-25 12:32:04,962: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:32:04,966: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:32:04,971: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:32:04,972: INFO: common: created directory at: artifacts]
+[2024-06-25 12:32:04,974: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-25 12:32:04,974: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-25 12:32:04,976: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-25 12:32:04,977: INFO: main: *******************]
+[2024-06-25 12:32:04,979: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-25 12:32:04,984: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:32:04,986: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:32:04,990: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:32:04,992: INFO: common: created directory at: artifacts]
+[2024-06-25 12:32:04,992: INFO: common: created directory at: artifacts/training]
+[2024-06-25 12:32:06,421: INFO: training: Model training initiated.]
+[2024-06-25 12:32:06,422: INFO: training: Hyperparameter optimization using Hyperopt initiated.]
+[2024-06-25 12:32:06,436: ERROR: main: Box can only compare two boxes or a box and a dictionary.]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 38, in <module>
+    obj.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 21, in main
+    training.train(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 42, in train
+    best_model, best_params, best_metrics = hyperparameter_optimization(X_train, y_train, X_test, y_test, self.hpo_config)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/optimization.py", line 29, in hyperparameter_optimization
+    best = fmin(fn=objective,
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/fmin.py", line 540, in fmin
+    return trials.fmin(
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/base.py", line 671, in fmin
+    return fmin(
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/fmin.py", line 586, in fmin
+    rval.exhaust()
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/fmin.py", line 364, in exhaust
+    self.run(self.max_evals - n_done, block_until_done=self.asynchronous)
+  File "box/box.py", line 316, in box.box.Box.__sub__
+box.exceptions.BoxError: Box can only compare two boxes or a box and a dictionary.
+[2024-06-25 12:37:46,064: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-25 12:37:46,068: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:37:46,071: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:37:46,076: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:37:46,076: INFO: common: created directory at: artifacts]
+[2024-06-25 12:37:46,078: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-25 12:37:46,080: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-25 12:37:46,083: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-25 12:37:46,084: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-25 12:37:46,087: INFO: main: *******************]
+[2024-06-25 12:37:46,088: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-25 12:37:46,097: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:37:46,103: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:37:46,108: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:37:46,108: INFO: common: created directory at: artifacts]
+[2024-06-25 12:37:46,115: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-25 12:37:46,115: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-25 12:37:46,117: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-25 12:37:46,118: INFO: main: *******************]
+[2024-06-25 12:37:46,120: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-25 12:37:46,125: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:37:46,129: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:37:46,133: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:37:46,134: INFO: common: created directory at: artifacts]
+[2024-06-25 12:37:46,136: INFO: common: created directory at: artifacts/training]
+[2024-06-25 12:37:47,372: INFO: training: Model training initiated.]
+[2024-06-25 12:37:47,373: INFO: training: Hyperparameter optimization using Hyperopt initiated.]
+[2024-06-25 12:37:47,375: ERROR: main: 'HyperparameterOptimizationConfig' object is not subscriptable]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 38, in <module>
+    obj.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 21, in main
+    training.train(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 42, in train
+    best_model, best_params, best_metrics = hyperparameter_optimization(X_train, y_train, X_test, y_test, self.hpo_config)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/optimization.py", line 29, in hyperparameter_optimization
+    max_evals=hpo_config['max_evals'],
+TypeError: 'HyperparameterOptimizationConfig' object is not subscriptable
+[2024-06-25 12:39:11,329: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-25 12:39:11,333: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:39:11,337: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:39:11,341: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:39:11,343: INFO: common: created directory at: artifacts]
+[2024-06-25 12:39:11,344: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-25 12:39:11,345: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-25 12:39:11,346: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-25 12:39:11,347: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-25 12:39:11,348: INFO: main: *******************]
+[2024-06-25 12:39:11,349: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-25 12:39:11,354: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:39:11,357: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:39:11,362: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:39:11,362: INFO: common: created directory at: artifacts]
+[2024-06-25 12:39:11,364: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-25 12:39:11,365: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-25 12:39:11,366: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-25 12:39:11,367: INFO: main: *******************]
+[2024-06-25 12:39:11,368: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-25 12:39:11,372: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:39:11,375: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:39:11,380: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:39:11,381: INFO: common: created directory at: artifacts]
+[2024-06-25 12:39:11,382: INFO: common: created directory at: artifacts/training]
+[2024-06-25 12:39:12,738: INFO: training: Model training initiated.]
+[2024-06-25 12:39:12,746: INFO: training: Hyperparameter optimization using Hyperopt initiated.]
+[2024-06-25 12:39:12,761: ERROR: main: Box can only compare two boxes or a box and a dictionary.]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 38, in <module>
+    obj.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 21, in main
+    training.train(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 42, in train
+    best_model, best_params, best_metrics = hyperparameter_optimization(X_train, y_train, X_test, y_test, self.hpo_config)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/optimization.py", line 26, in hyperparameter_optimization
+    best = fmin(fn=objective,
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/fmin.py", line 540, in fmin
+    return trials.fmin(
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/base.py", line 671, in fmin
+    return fmin(
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/fmin.py", line 586, in fmin
+    rval.exhaust()
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/fmin.py", line 364, in exhaust
+    self.run(self.max_evals - n_done, block_until_done=self.asynchronous)
+  File "box/box.py", line 316, in box.box.Box.__sub__
+box.exceptions.BoxError: Box can only compare two boxes or a box and a dictionary.
+[2024-06-25 12:41:16,574: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-25 12:41:16,579: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:41:16,583: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:41:16,588: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:41:16,590: INFO: common: created directory at: artifacts]
+[2024-06-25 12:41:16,591: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-25 12:41:16,591: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-25 12:41:16,593: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-25 12:41:16,594: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-25 12:41:16,595: INFO: main: *******************]
+[2024-06-25 12:41:16,595: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-25 12:41:16,599: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:41:16,602: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:41:16,607: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:41:16,608: INFO: common: created directory at: artifacts]
+[2024-06-25 12:41:16,609: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-25 12:41:16,609: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-25 12:41:16,609: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-25 12:41:16,610: INFO: main: *******************]
+[2024-06-25 12:41:16,610: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-25 12:41:16,622: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:41:16,625: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:41:16,630: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:41:16,631: INFO: common: created directory at: artifacts]
+[2024-06-25 12:41:16,632: INFO: common: created directory at: artifacts/training]
+[2024-06-25 12:41:18,687: INFO: training: Model training initiated.]
+[2024-06-25 12:41:18,687: INFO: training: Hyperparameter optimization using Hyperopt initiated.]
+[2024-06-25 12:41:18,688: ERROR: main: 'HyperparameterOptimizationConfig' object is not subscriptable]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 38, in <module>
+    obj.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 21, in main
+    training.train(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 42, in train
+    best_model, best_params, best_metrics = hyperparameter_optimization(X_train, y_train, X_test, y_test, self.hpo_config)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/optimization.py", line 29, in hyperparameter_optimization
+    max_evals=hpo_config['max_evals'],
+TypeError: 'HyperparameterOptimizationConfig' object is not subscriptable
+[2024-06-25 12:41:46,140: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-25 12:41:46,147: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:41:46,151: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:41:46,154: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:41:46,155: INFO: common: created directory at: artifacts]
+[2024-06-25 12:41:46,156: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-25 12:41:46,157: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-25 12:41:46,158: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-25 12:41:46,160: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-25 12:41:46,160: INFO: main: *******************]
+[2024-06-25 12:41:46,161: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-25 12:41:46,174: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:41:46,177: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:41:46,182: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:41:46,183: INFO: common: created directory at: artifacts]
+[2024-06-25 12:41:46,184: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-25 12:41:46,185: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-25 12:41:46,185: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-25 12:41:46,185: INFO: main: *******************]
+[2024-06-25 12:41:46,186: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-25 12:41:46,191: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:41:46,195: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:41:46,201: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:41:46,203: INFO: common: created directory at: artifacts]
+[2024-06-25 12:41:46,203: INFO: common: created directory at: artifacts/training]
+[2024-06-25 12:41:48,645: INFO: training: Model training initiated.]
+[2024-06-25 12:41:48,646: INFO: training: Hyperparameter optimization using Hyperopt initiated.]
+[2024-06-25 12:41:48,682: ERROR: main: Box can only compare two boxes or a box and a dictionary.]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 38, in <module>
+    obj.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 21, in main
+    training.train(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 42, in train
+    best_model, best_params, best_metrics = hyperparameter_optimization(X_train, y_train, X_test, y_test, self.hpo_config)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/optimization.py", line 26, in hyperparameter_optimization
+    best = fmin(fn=objective,
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/fmin.py", line 540, in fmin
+    return trials.fmin(
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/base.py", line 671, in fmin
+    return fmin(
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/fmin.py", line 586, in fmin
+    rval.exhaust()
+  File "/home/nair.ro/miniforge3/lib/python3.10/site-packages/hyperopt/fmin.py", line 364, in exhaust
+    self.run(self.max_evals - n_done, block_until_done=self.asynchronous)
+  File "box/box.py", line 316, in box.box.Box.__sub__
+box.exceptions.BoxError: Box can only compare two boxes or a box and a dictionary.
+[2024-06-25 12:43:52,286: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-25 12:43:52,291: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:43:52,294: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:43:52,298: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:43:52,300: INFO: common: created directory at: artifacts]
+[2024-06-25 12:43:52,301: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-25 12:43:52,301: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-25 12:43:52,302: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-25 12:43:52,302: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-25 12:43:52,303: INFO: main: *******************]
+[2024-06-25 12:43:52,303: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-25 12:43:52,307: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:43:52,308: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:43:52,313: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:43:52,314: INFO: common: created directory at: artifacts]
+[2024-06-25 12:43:52,315: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-25 12:43:52,315: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-25 12:43:52,315: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-25 12:43:52,316: INFO: main: *******************]
+[2024-06-25 12:43:52,316: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-25 12:43:52,319: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:43:52,321: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:43:52,325: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:43:52,326: INFO: common: created directory at: artifacts]
+[2024-06-25 12:43:52,327: INFO: common: created directory at: artifacts/training]
+[2024-06-25 12:43:53,673: INFO: training: Model training initiated.]
+[2024-06-25 12:43:53,673: INFO: training: Hyperparameter optimization using Hyperopt initiated.]
+[2024-06-25 12:43:53,681: INFO: tpe: build_posterior_wrapper took 0.002583 seconds]
+[2024-06-25 12:43:53,682: INFO: tpe: TPE using 0 trials]
+[2024-06-25 12:43:57,081: INFO: tpe: build_posterior_wrapper took 0.001523 seconds]
+[2024-06-25 12:43:57,083: INFO: tpe: TPE using 1/1 trials with best loss -0.990332]
+[2024-06-25 12:44:00,396: INFO: tpe: build_posterior_wrapper took 0.001400 seconds]
+[2024-06-25 12:44:00,397: INFO: tpe: TPE using 2/2 trials with best loss -0.990332]
+[2024-06-25 12:44:03,879: INFO: tpe: build_posterior_wrapper took 0.001354 seconds]
+[2024-06-25 12:44:03,885: INFO: tpe: TPE using 3/3 trials with best loss -0.990332]
+[2024-06-25 12:44:06,938: INFO: tpe: build_posterior_wrapper took 0.001559 seconds]
+[2024-06-25 12:44:06,938: INFO: tpe: TPE using 4/4 trials with best loss -0.990332]
+[2024-06-25 12:44:10,130: INFO: tpe: build_posterior_wrapper took 0.001396 seconds]
+[2024-06-25 12:44:10,131: INFO: tpe: TPE using 5/5 trials with best loss -0.990332]
+[2024-06-25 12:44:13,842: INFO: tpe: build_posterior_wrapper took 0.001389 seconds]
+[2024-06-25 12:44:13,842: INFO: tpe: TPE using 6/6 trials with best loss -0.990332]
+[2024-06-25 12:44:16,950: INFO: tpe: build_posterior_wrapper took 0.001384 seconds]
+[2024-06-25 12:44:16,951: INFO: tpe: TPE using 7/7 trials with best loss -0.990332]
+[2024-06-25 12:44:42,534: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-25 12:44:42,539: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:44:42,542: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:44:42,546: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:44:42,547: INFO: common: created directory at: artifacts]
+[2024-06-25 12:44:42,548: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-25 12:44:42,548: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-25 12:44:42,550: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-25 12:44:42,550: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-25 12:44:42,550: INFO: main: *******************]
+[2024-06-25 12:44:42,550: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-25 12:44:42,555: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:44:42,557: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:44:42,560: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:44:42,561: INFO: common: created directory at: artifacts]
+[2024-06-25 12:44:42,562: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-25 12:44:42,562: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-25 12:44:42,563: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-25 12:44:42,563: INFO: main: *******************]
+[2024-06-25 12:44:42,563: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-25 12:44:42,567: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:44:42,587: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:44:42,592: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:44:42,593: INFO: common: created directory at: artifacts]
+[2024-06-25 12:44:42,595: INFO: common: created directory at: artifacts/training]
+[2024-06-25 12:44:44,022: INFO: training: Model training initiated.]
+[2024-06-25 12:44:44,022: INFO: training: Hyperparameter optimization using Hyperopt initiated.]
+[2024-06-25 12:44:44,029: INFO: tpe: build_posterior_wrapper took 0.002204 seconds]
+[2024-06-25 12:44:44,030: INFO: tpe: TPE using 0 trials]
+[2024-06-25 12:44:47,039: INFO: tpe: build_posterior_wrapper took 0.001504 seconds]
+[2024-06-25 12:44:47,040: INFO: tpe: TPE using 1/1 trials with best loss -0.990733]
+[2024-06-25 12:44:50,288: INFO: tpe: build_posterior_wrapper took 0.001417 seconds]
+[2024-06-25 12:44:50,289: INFO: tpe: TPE using 2/2 trials with best loss -0.990733]
+[2024-06-25 12:44:53,598: INFO: tpe: build_posterior_wrapper took 0.001360 seconds]
+[2024-06-25 12:44:53,599: INFO: tpe: TPE using 3/3 trials with best loss -0.990733]
+[2024-06-25 12:44:56,605: ERROR: main: 'n_estimators']
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 38, in <module>
+    obj.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 21, in main
+    training.train(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 42, in train
+    best_model, best_params, best_metrics = hyperparameter_optimization(X_train, y_train, X_test, y_test, self.hpo_config)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/optimization.py", line 52, in hyperparameter_optimization
+    'n_estimators': int(best['n_estimators']),
+KeyError: 'n_estimators'
+[2024-06-25 12:48:15,062: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-25 12:48:15,066: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:48:15,070: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:48:15,074: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:48:15,075: INFO: common: created directory at: artifacts]
+[2024-06-25 12:48:15,076: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-25 12:48:15,077: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-25 12:48:15,078: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-25 12:48:15,078: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-25 12:48:15,079: INFO: main: *******************]
+[2024-06-25 12:48:15,079: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-25 12:48:15,098: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:48:15,101: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:48:15,106: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:48:15,111: INFO: common: created directory at: artifacts]
+[2024-06-25 12:48:15,112: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-25 12:48:15,113: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-25 12:48:15,113: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-25 12:48:15,113: INFO: main: *******************]
+[2024-06-25 12:48:15,113: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-25 12:48:15,117: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:48:15,120: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:48:15,127: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:48:15,128: INFO: common: created directory at: artifacts]
+[2024-06-25 12:48:15,129: INFO: common: created directory at: artifacts/training]
+[2024-06-25 12:48:16,564: INFO: training: Model training initiated.]
+[2024-06-25 12:48:16,564: INFO: training: Hyperparameter optimization using Hyperopt initiated.]
+[2024-06-25 12:48:16,585: INFO: tpe: build_posterior_wrapper took 0.006376 seconds]
+[2024-06-25 12:48:16,586: INFO: tpe: TPE using 0 trials]
+[2024-06-25 12:48:32,712: INFO: tpe: build_posterior_wrapper took 0.005765 seconds]
+[2024-06-25 12:48:32,713: INFO: tpe: TPE using 1/1 trials with best loss -0.990447]
+[2024-06-25 12:49:24,571: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-25 12:49:24,575: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:49:24,577: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:49:24,581: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:49:24,582: INFO: common: created directory at: artifacts]
+[2024-06-25 12:49:24,584: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-25 12:49:24,585: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-25 12:49:24,587: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-25 12:49:24,587: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-25 12:49:24,587: INFO: main: *******************]
+[2024-06-25 12:49:24,587: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-25 12:49:24,591: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:49:24,592: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:49:24,596: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:49:24,597: INFO: common: created directory at: artifacts]
+[2024-06-25 12:49:24,598: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-25 12:49:24,598: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-25 12:49:24,599: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-25 12:49:24,599: INFO: main: *******************]
+[2024-06-25 12:49:24,599: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-25 12:49:24,602: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:49:24,605: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:49:24,608: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:49:24,609: INFO: common: created directory at: artifacts]
+[2024-06-25 12:49:24,609: INFO: common: created directory at: artifacts/training]
+[2024-06-25 12:49:25,816: INFO: training: Model training initiated.]
+[2024-06-25 12:49:25,816: INFO: training: Hyperparameter optimization using Hyperopt initiated.]
+[2024-06-25 12:49:25,837: INFO: tpe: build_posterior_wrapper took 0.005949 seconds]
+[2024-06-25 12:49:25,837: INFO: tpe: TPE using 0 trials]
+[2024-06-25 12:49:47,837: INFO: tpe: build_posterior_wrapper took 0.005824 seconds]
+[2024-06-25 12:49:47,838: INFO: tpe: TPE using 1/1 trials with best loss -0.990904]
+[2024-06-25 12:49:59,822: INFO: optimization: Best hyperparameters found: {'n_estimators': 52, 'max_depth': 3, 'learning_rate': 0.10678535441965789, 'subsample': 0.5051990726860205, 'colsample_bytree': 0.9444207038313617, 'gamma': 3.632877928697976}]
+[2024-06-25 12:49:59,823: ERROR: main: 'HyperparameterOptimizationConfig' object is not subscriptable]
+Traceback (most recent call last):
+  File "/home/nair.ro/mlops-model-dev/main.py", line 38, in <module>
+    obj.main(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/pipeline/stage_03_training_cross_val.py", line 21, in main
+    training.train(xgb)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/training.py", line 42, in train
+    best_model, best_params, best_metrics = hyperparameter_optimization(X_train, y_train, X_test, y_test, self.hpo_config)
+  File "/home/nair.ro/mlops-model-dev/src/XGBClassifier/components/optimization.py", line 61, in hyperparameter_optimization
+    random_state=hpo_config['random_state'],
+TypeError: 'HyperparameterOptimizationConfig' object is not subscriptable
+[2024-06-25 12:50:30,901: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-25 12:50:30,906: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:50:30,910: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:50:30,914: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:50:30,915: INFO: common: created directory at: artifacts]
+[2024-06-25 12:50:30,916: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-06-25 12:50:30,917: INFO: data_ingestion: File already exists of size: ~ 74490 KB]
+[2024-06-25 12:50:30,919: INFO: data_ingestion:  File 'artifacts/data_ingestion/card_transdata.csv' is of type '.csv']
+[2024-06-25 12:50:30,919: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-06-25 12:50:30,920: INFO: main: *******************]
+[2024-06-25 12:50:30,920: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-06-25 12:50:30,923: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:50:30,926: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:50:30,930: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:50:30,931: INFO: common: created directory at: artifacts]
+[2024-06-25 12:50:30,932: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-06-25 12:50:30,932: INFO: prepare_base_model: Initialized XGBClassifier with following parameters PrepareBaseModelConfig(params_n_estimators=500, params_learning_rate=0.1, params_random_state=42, params_subsample=0.5, params_n_jobs=-1, params_max_depth=3)]
+[2024-06-25 12:50:30,932: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-06-25 12:50:30,933: INFO: main: *******************]
+[2024-06-25 12:50:30,933: INFO: main: >>>>>> stage Train and save model started <<<<<<]
+[2024-06-25 12:50:30,937: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:50:30,939: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:50:30,943: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:50:30,944: INFO: common: created directory at: artifacts]
+[2024-06-25 12:50:30,944: INFO: common: created directory at: artifacts/training]
+[2024-06-25 12:50:32,332: INFO: training: Model training initiated.]
+[2024-06-25 12:50:32,333: INFO: training: Hyperparameter optimization using Hyperopt initiated.]
+[2024-06-25 12:50:32,355: INFO: tpe: build_posterior_wrapper took 0.006868 seconds]
+[2024-06-25 12:50:32,355: INFO: tpe: TPE using 0 trials]
+[2024-06-25 12:51:09,997: INFO: tpe: build_posterior_wrapper took 0.005860 seconds]
+[2024-06-25 12:51:09,998: INFO: tpe: TPE using 1/1 trials with best loss -0.990561]
+[2024-06-25 12:51:37,641: INFO: optimization: Best hyperparameters found: {'n_estimators': 81, 'max_depth': 10, 'learning_rate': 0.09758397007771887, 'subsample': 0.786630387678335, 'colsample_bytree': 0.6819762246579416, 'gamma': 9.050197211249202}]
+[2024-06-25 12:51:42,302: INFO: optimization: Best model recall: 0.9898747211257937]
+[2024-06-25 12:51:42,322: INFO: training: Model saved in path artifacts/training/model.pkl.]
+[2024-06-25 12:51:42,322: INFO: training: Best parameters: {'n_estimators': 81, 'max_depth': 10, 'learning_rate': 0.09758397007771887, 'subsample': 0.786630387678335, 'colsample_bytree': 0.6819762246579416, 'gamma': 9.050197211249202}]
+[2024-06-25 12:51:42,322: INFO: training: Best metrics: {'recall': 0.9898747211257937}]
+[2024-06-25 12:51:42,323: INFO: main: >>>>>> stage Train and save model completed <<<<<<
+
+x==========x]
+[2024-06-25 12:51:42,323: INFO: main: *******************]
+[2024-06-25 12:51:42,323: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2024-06-25 12:51:42,327: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:51:42,330: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:51:42,334: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:51:42,336: INFO: common: created directory at: artifacts]
+[2024-06-25 12:51:49,061: INFO: common: Figure saved as: evaluation_metrics_20240625_125147.png]
+[2024-06-25 12:51:50,575: INFO: helpers: Initialized MLflow to track repo "ronair212/mlops-model-dev"]
+[2024-06-25 12:51:50,577: INFO: helpers: Repository ronair212/mlops-model-dev initialized!]
+[2024-06-25 12:51:53,350: INFO: common: Figure saved as: precision_recall_curve_20240625_125153.png]
+[2024-06-25 12:51:53,352: INFO: evaluation:      Threshold  Precision  Recall
+152   0.081264   0.955559     1.0
+153   0.084415   0.956919     1.0
+154   0.089999   0.957024     1.0
+155   0.093988   0.957129     1.0
+156   0.121125   0.958126     1.0
+157   0.128100   0.958388     1.0
+158   0.130697   0.958493     1.0
+159   0.144694   0.973872     1.0
+160   0.146712   0.973926     1.0
+161   0.154061   0.974035     1.0]
+[2024-06-25 12:51:53,408: INFO: common: json file saved at: prt.json]
+[2024-06-25 12:51:55,138: INFO: common: Figure saved as: roc-auc-curve_20240625_125155.png]
+[2024-06-25 12:51:55,255: INFO: main: >>>>>> stage Evaluation stage completed <<<<<<
+
+x==========x]
+[2024-06-25 12:51:55,256: INFO: main: *******************]
+[2024-06-25 12:51:55,256: INFO: main: >>>>>> stage MLFlow stage started <<<<<<]
+[2024-06-25 12:51:55,259: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-06-25 12:51:55,263: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-06-25 12:51:55,267: INFO: common: yaml file: /home/nair.ro/mlops-model-dev/hyperopt_params.yaml loaded successfully]
+[2024-06-25 12:51:55,269: INFO: common: created directory at: artifacts]
+[2024-06-25 12:52:42,906: INFO: main: >>>>>> stage MLFlow stage completed <<<<<<
+
+x==========x]
