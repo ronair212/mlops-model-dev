@@ -1,0 +1,15 @@
+artifact_uri: /home/nair.ro/mlops-model-dev/mlruns/595611042534161121/71890177a4194de980b2f82d17ca57d3/artifacts
+end_time: 1719281010163
+entry_point_name: ''
+experiment_id: '595611042534161121'
+lifecycle_stage: active
+run_id: 71890177a4194de980b2f82d17ca57d3
+run_name: bright-mare-361
+run_uuid: 71890177a4194de980b2f82d17ca57d3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719281009945
+status: 3
+tags: []
+user_id: ee2842d33bcd6aae5d0b3f1503e24390721609dd

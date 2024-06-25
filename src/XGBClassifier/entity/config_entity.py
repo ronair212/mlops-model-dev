@@ -42,7 +42,15 @@ class EvaluationConfig:
     
 @dataclass(frozen=True)
 class MLFlowConfig:
+    model_save_filepath: Path
     experiment_name: str
     local_tracking_uri: str
     remote_tracking_uri: str
     all_params: dict
+    
+@dataclass(frozen=True)
+class HyperparameterOptimizationConfig:
+    max_evals: int
+    params_space: dict
+    random_state: int
+    use_hyperopt: bool

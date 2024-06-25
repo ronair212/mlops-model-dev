@@ -1,0 +1,15 @@
+artifact_uri: /home/nair.ro/mlops-model-dev/mlruns/595611042534161121/7e3caa548cc844a6a54c2f0ecbde5889/artifacts
+end_time: 1719281009531
+entry_point_name: ''
+experiment_id: '595611042534161121'
+lifecycle_stage: active
+run_id: 7e3caa548cc844a6a54c2f0ecbde5889
+run_name: stately-jay-457
+run_uuid: 7e3caa548cc844a6a54c2f0ecbde5889
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719281009352
+status: 3
+tags: []
+user_id: ronair212

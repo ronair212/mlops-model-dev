@@ -1,0 +1,15 @@
+artifact_uri: /home/nair.ro/mlops-model-dev/mlruns/595611042534161121/0c125e1a935248d6a99af389935b0a74/artifacts
+end_time: 1719296351216
+entry_point_name: ''
+experiment_id: '595611042534161121'
+lifecycle_stage: active
+run_id: 0c125e1a935248d6a99af389935b0a74
+run_name: chill-colt-949
+run_uuid: 0c125e1a935248d6a99af389935b0a74
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719296351053
+status: 3
+tags: []
+user_id: ronair212

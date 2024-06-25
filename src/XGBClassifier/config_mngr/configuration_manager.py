@@ -2,7 +2,12 @@ from XGBClassifier.constants import *
 import os
 from pathlib import Path
 from XGBClassifier.utils.common import read_yaml, create_directories
-from XGBClassifier.entity.config_entity import (DataIngestionConfig, PrepareBaseModelConfig, TrainingConfig, EvaluationConfig, MLFlowConfig)
+from XGBClassifier.entity.config_entity import (DataIngestionConfig, 
+                                                PrepareBaseModelConfig, 
+                                                TrainingConfig, 
+                                                EvaluationConfig, 
+                                                MLFlowConfig, 
+                                                HyperparameterOptimizationConfig)
 
 
 
@@ -11,14 +16,15 @@ class ConfigurationManager:
     def __init__(
         self,
         config_filepath = CONFIG_FILE_PATH,
-        params_filepath = PARAMS_FILE_PATH):
+        params_filepath = PARAMS_FILE_PATH,
+        hyperopt_params_filepath="/home/nair.ro/mlops-model-dev/hyperopt_params.yaml",):
 
         self.config = read_yaml(config_filepath)
         self.params = read_yaml(params_filepath)
-
+        self.hyperopt_params = read_yaml(Path(hyperopt_params_filepath))
         create_directories([self.config.artifacts_root])
 
-
+        
     
     def get_data_ingestion_config(self) -> DataIngestionConfig:
         config = self.config.data_ingestion
@@ -90,9 +96,23 @@ class ConfigurationManager:
         
         config = self.config.tracking
         mlflow_config = MLFlowConfig(
+            model_save_filepath=config.model_save_filepath,
             experiment_name = config.experiment_name,
             local_tracking_uri = config.local_tracking_uri,
             remote_tracking_uri = config.remote_tracking_uri,
             all_params=self.params,
         )
         return mlflow_config
+    
+    
+    
+    def get_hyperparameter_optimization_config(self) -> HyperparameterOptimizationConfig:
+        params = self.params
+        params_space = self.hyperopt_params
+        hyperparameter_optimization_config = HyperparameterOptimizationConfig(
+            max_evals=params_space["max_evals"],
+            params_space=params_space,
+            random_state=params["random_state"],
+            use_hyperopt=params["use_hyperopt"]
+        )
+        return hyperparameter_optimization_config
