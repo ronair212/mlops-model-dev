@@ -51,21 +51,15 @@ jobs:
             #!/bin/bash
             sudo su
 
-            # Install Docker
-            cd /home/ubuntu
-            echo "Downloading Docker installation script..."
-            curl -fsSL https://get.docker.com -o get-docker.sh
-            echo "Running Docker installation script..."
-            sh get-docker.sh
-            echo "Docker installation completed."
-
-            # Install Docker Compose
-            echo "Downloading Docker Compose..."
-            sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-            echo "Setting executable permissions for Docker Compose..."
-            sudo chmod +x /usr/local/bin/docker-compose
-            echo "Docker Compose installation completed."
-            sudo docker system prune -f
+            # Install Miniconda
+            echo "Installing Miniconda..."
+            wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
+            bash miniconda.sh -b -p /opt/miniconda
+            rm miniconda.sh
+            export PATH=/opt/miniconda/bin:\$PATH
+            conda init
+            source /root/.bashrc
+            echo "Miniconda installation completed."
 
             # Clone the repository
             cd /home/ubuntu
@@ -78,18 +72,13 @@ jobs:
             cd /home/ubuntu/mlops-model-dev
             echo "Navigated into the mlops-model-dev directory."
 
-            # Output the content of .env to verify
-            echo "Verifying the content of the .env file..."
-            cat /home/ubuntu/.env
-            echo "Verification completed. Setup script finished."
+            # Create and activate Conda environment
+            echo "Creating and activating Conda environment..."
+            conda create -n fraud_env python=3.8 -y
+            source activate fraud_env
+            echo "Conda environment 'fraud_env' created and activated."
 
-            # Create and activate virtual environment
-            echo "Creating virtual environment..."
-            python3 -m venv venv
-            source venv/bin/activate
-            echo "Virtual environment created and activated."
-
-            # Install Python dependencies in virtual environment
+            # Install Python dependencies in Conda environment
             echo "Installing Python dependencies..."
             pip install -r requirements.txt
             echo "Python dependencies installed."
@@ -101,6 +90,6 @@ jobs:
 
             # Run your Python script
             echo "Running main.py..."
-            PYTHONPATH=\$PYTHONPATH:/home/ubuntu/mlops-model-dev/src venv/bin/python main.py
+            PYTHONPATH=\$PYTHONPATH:/home/ubuntu/mlops-model-dev/src python main.py
             echo "Python script executed successfully."
           EOF
