@@ -74,6 +74,7 @@ class ConfigurationManager:
             stratify=params.stratify,
             test_size=params.test_size,
             random_state=params.random_state,
+            eval_results_folder=training.eval_results_folder,
         )
         return training_config
     
@@ -88,6 +89,8 @@ class ConfigurationManager:
             local_data_file=config.local_data_file,
             mlflow_uri="https://dagshub.com/ronair212/mlops-model-dev.mlflow/",
             all_params=self.params,
+            eval_results_folder= config.eval_results_folder,
+            mlflow_results_folder= config.mlflow_results_folder,
         )
         return eval_config
     
@@ -101,6 +104,8 @@ class ConfigurationManager:
             local_tracking_uri = config.local_tracking_uri,
             remote_tracking_uri = config.remote_tracking_uri,
             all_params=self.params,
+            eval_results_folder= config.eval_results_folder,
+            mlflow_results_folder= config.mlflow_results_folder,
         )
         return mlflow_config
     

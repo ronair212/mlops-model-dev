@@ -30,6 +30,7 @@ class Tracking:
             
             with open('confusion_matrix.json', 'w') as f:
                 json.dump(cm.tolist(), f)
+            #save_path = self.config.mlflow_results_folder #+ "/confusion_matrix.json"
             mlflow.log_artifact('confusion_matrix.json')
 
             mlflow.xgboost.log_model(model, 'xgboost-model')
