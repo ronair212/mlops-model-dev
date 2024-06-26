@@ -83,6 +83,16 @@ jobs:
             pip install -r requirements.txt
             echo "Python dependencies installed."
 
+            # Explicitly install 'ensure' package
+            echo "Installing 'ensure' package..."
+            pip install ensure
+            echo "'ensure' package installed."
+
+            # Verify 'ensure' package installation
+            echo "Verifying 'ensure' package installation..."
+            python -c "import ensure; print('ensure installed successfully')"
+            echo "'ensure' package verified."
+
             # Export environment variables
             echo "Exporting environment variables..."
             export $(cat /home/ubuntu/.env | xargs)
