@@ -32,7 +32,7 @@ jobs:
           echo "MLFLOW_TRACKING_URI=https://dagshub.com/ronair212/mlops-model-dev.mlflow" >> .env
           echo "MLFLOW_TRACKING_USERNAME=ronair212" >> .env
           echo "MLFLOW_TRACKING_PASSWORD=mlopskhoury" >> .env
-          echo "PYTHONPATH=\$PYTHONPATH:/home/nair.ro/mlops-model-dev/src/" >> .env
+          echo "PYTHONPATH=\$PYTHONPATH:/home/ubuntu//mlops-model-dev/src/" >> .env
           cat .env
 
       - name: Copy .env file to EC2
