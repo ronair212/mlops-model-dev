@@ -15,4 +15,5 @@ types-PyYAML
 scipy
 mlflow
 gdown
+ensure
 -e .
