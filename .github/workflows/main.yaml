@@ -1,98 +1,94 @@
-name: workflow
+name: Deploy to EC2
 
 on:
   push:
     branches:
       - aws-s3
-    paths-ignore:
-      - 'README.md'
-
-permissions:
-  id-token: write
-  contents: read
 
 jobs:
-  integration:
-    name: Continuous Integration
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Lint code
-        run: echo "Linting repository"
-
-      - name: Run unit tests
-        run: echo "Running unit tests"
-
-  build-and-push-ecr-image:
-    name: Continuous Delivery
-    needs: integration
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      - name: Install Utilities
+      - name: Set up PEM file
         run: |
-          sudo apt-get update
-          sudo apt-get install -y jq unzip
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          echo "${{ secrets.EC2_SSH_KEY }}" > ec2_key.pem
+          chmod 600 ec2_key.pem
 
-      - name: Login to Amazon ECR
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
-
-      - name: Build, tag, and push image to Amazon ECR
-        id: build-image
+      - name: Create .env file
         env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY_NAME }}
-          IMAGE_TAG: latest
+          AWS_S3_OBJECT_NAME: ${{ secrets.AWS_S3_OBJECT_NAME }}
+          AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}
+          AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         run: |
-          # Build a docker container and
-          # push it to ECR so that it can
-          # be deployed to ECS.
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
-          
-          
-  Continuous-Deployment:
-    needs: build-and-push-ecr-image
-    runs-on: self-hosted
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+          echo "AWS_S3_OBJECT_NAME=${AWS_S3_OBJECT_NAME}" > .env
+          echo "AWS_S3_BUCKET_NAME=${AWS_S3_BUCKET_NAME}" >> .env
+          echo "AWS_SECRET_KEY=${AWS_SECRET_KEY}" >> .env
+          echo "AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}" >> .env
+          cat .env
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
+      - name: Copy .env file to EC2
+        env:
+          EC2_USER: ubuntu
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+        run: |
+          scp -i ec2_key.pem -o StrictHostKeyChecking=no .env $EC2_USER@$EC2_HOST:/home/ubuntu/.env
 
-      - name: Login to Amazon ECR
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
-      
-      
-      - name: Pull latest images
+      - name: Deploy on EC2
+        env:
+          EC2_USER: ubuntu
+          EC2_HOST: ${{ secrets.EC2_HOST }}
         run: |
-         docker pull ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
-         
-      # - name: Stop and remove container if running
-      #   run: |
-      #    docker ps -q --filter "name=cnncls" | grep -q . && docker stop cnncls && docker rm -fv cnncls
-       
-      - name: Run Docker Image to serve users
-        run: |
-         docker run -d -p 8080:8080 --name=cnncls -e 'AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}' -e 'AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}' -e 'AWS_REGION=${{ secrets.AWS_REGION }}'  ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
-      - name: Clean previous images and containers
-        run: |
-         docker system prune -f
+          ssh -i ec2_key.pem -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST << EOF
+            #!/bin/bash
+            sudo su
+
+            # Install Docker
+            cd /home/ubuntu
+            echo "Downloading Docker installation script..."
+            curl -fsSL https://get.docker.com -o get-docker.sh
+            echo "Running Docker installation script..."
+            sh get-docker.sh
+            echo "Docker installation completed."
+
+            # Install Docker Compose
+            echo "Downloading Docker Compose..."
+            sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+            echo "Setting executable permissions for Docker Compose..."
+            sudo chmod +x /usr/local/bin/docker-compose
+            echo "Docker Compose installation completed."
+            sudo docker system prune -f
+
+            # Clone the repository
+            cd /home/ubuntu
+            rm -rf /home/ubuntu/mlops-model-dev
+            echo "Cloning the mlops-model-dev repository..."
+            git clone https://github.com/ronair212/mlops-model-dev.git
+            echo "Repository cloned successfully."
+
+            # Navigate into the repository directory
+            cd /home/ubuntu/mlops-model-dev
+            echo "Navigated into the mlops-model-dev directory."
+
+            # Output the content of .env to verify
+            echo "Verifying the content of the .env file..."
+            echo "Verification completed. Setup script finished."
+            
+            
+            # Install Python dependencies if required
+            echo "Installing Python dependencies..."
+            sudo apt-get update
+            sudo apt-get install -y python3-pip
+            pip3 install -r requirements.txt
+            echo "Python dependencies installed."
+
+
+            # Run your Python script
+            echo "Running main.py..."
+            python3 main.py
+            echo "Python script executed successfully."
+          EOF
