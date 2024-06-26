@@ -75,7 +75,7 @@ jobs:
             echo "Navigated into the mlops-model-dev directory."
 
             # Output the content of .env to verify
-            echo "Verifying the content of the .env file..."
+            echo "Verifying the content of thee .env file..."
             echo "Verification completed. Setup script finished."
             
             
