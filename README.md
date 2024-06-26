@@ -84,3 +84,8 @@ MLflow
  - Logging & taging your model
 
 
+
+
+
+# ECR uri 
+654654149355.dkr.ecr.us-east-1.amazonaws.com/mlops-dev
