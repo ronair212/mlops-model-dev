@@ -110,7 +110,8 @@ jobs:
             #xgboost
             # Explicitly install 'xgboost' package
             echo "Installing 'xgboost' package..."
-            pip install xgboost
+            pip install --upgrade pip setuptools
+            pip install xgboost==1.6.0
             echo "'xgboost' package installed."
 
             # Verify 'xgboost' package installation
@@ -142,23 +143,12 @@ jobs:
             python -c "import sklearn; print('sklearn installed successfully')"
             echo "'sklearn' package verified."
 
-
-
-
-
             # Export environment variables
             echo "Exporting environment variables..."
             export $(cat /home/ubuntu/.env | xargs)
             echo "Environment variables exported."
 
             echo "Running main.py..."
-            /opt/miniconda/envs/fraud_env/lib/python3.8 /home/ubuntu/mlops-model-dev/main.py
+            python /home/ubuntu/mlops-model-dev/main.py
             echo "Python script executed successfully."
           EOF
-
-
-
-
-
-
-
