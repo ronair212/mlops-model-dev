@@ -14,7 +14,7 @@ def upload_to_s3(file_name, bucket, object_name=None):
 if __name__ == "__main__":
     processed_data_file = 'artifacts/data_ingestion/card_transdata.csv'
     model_file = 'artifacts/training/model.pkl'
-    bucket_name = 'mlops-dev-s3 '
+    bucket_name = 'mlops-dev-s3'
     
     # Upload files
     upload_to_s3(processed_data_file, bucket_name, 'processed_data.csv')
