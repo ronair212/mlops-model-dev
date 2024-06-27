@@ -106,6 +106,16 @@ jobs:
             echo "'gdown' package verified."
 
 
+            #xgboost
+            # Explicitly install 'xgboost' package
+            echo "Installing 'xgboost' package..."
+            pip install xgboost
+            echo "'xgboost' package installed."
+
+            # Verify 'xgboost' package installation
+            echo "Verifying 'xgboost' package installation..."
+            python -c "import xgboost; print('xgboost installed successfully')"
+            echo "'xgboost' package verified."
 
 
 
