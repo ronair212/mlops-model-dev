@@ -4,6 +4,7 @@ from src.XGBClassifier.pipeline.stage_02_prepare_base_model import PrepareBaseMo
 from src.XGBClassifier.pipeline.stage_03_training_cross_val import ModelTrainingPipeline
 from src.XGBClassifier.pipeline.stage_04_evaluation import EvaluationPipeline
 from src.XGBClassifier.pipeline.stage_05_mlflow import MLFlowTrackingPipeline
+import subprocess
 
 STAGE_NAME = "Data Ingestion stage"
 try:
