@@ -58,7 +58,7 @@ jobs:
             rm miniconda.sh
             export PATH=/opt/miniconda/bin:\$PATH
             conda init
-            source /root/.bashrc
+            #source /root/.bashrc
             echo "Miniconda installation completed."
 
             # Clone the repository
@@ -120,7 +120,7 @@ jobs:
             echo "'xgboost' package verified."
 
 
-            #pandas
+            #pandass
             # Explicitly install 'pandas' package
             echo "Installing 'pandas' package..."
             pip install pandas
