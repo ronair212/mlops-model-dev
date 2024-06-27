@@ -42,6 +42,17 @@ jobs:
           echo "MLFLOW_TRACKING_PASSWORD=mlopskhoury" >> .env
           echo "PYTHONPATH=\$PYTHONPATH:/home/ubuntu/mlops-model-dev/src/" >> .env
           cat .env
+          
+      - name: Print Environment Variables for Debugging
+        run: |
+          echo "AWS_S3_BUCKET_NAME=${{ secrets.AWS_S3_BUCKET_NAME }}"
+          echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}"
+          echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}"
+          echo "AWS_REGION=${{ secrets.AWS_REGION }}"
+          echo "AWS_S3_OBJECT_NAME_PROCESSED=${{ secrets.AWS_S3_OBJECT_NAME_PROCESSED }}"
+          echo "AWS_S3_OBJECT_NAME_MODEL=${{ secrets.AWS_S3_OBJECT_NAME_MODEL }}"
+
+
 
       - name: Copy .env file to EC2
         env:
