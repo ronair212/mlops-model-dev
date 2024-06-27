@@ -75,11 +75,12 @@ jobs:
             # Create and activate Conda environment
             echo "Creating and activating Conda environment..."
             conda create -n fraud_env python=3.8 -y
-            source activate fraud_env
+            source /opt/miniconda/bin/activate fraud_env
             echo "Conda environment 'fraud_env' created and activated."
 
             # Install Python dependencies in Conda environment
             echo "Installing Python dependencies..."
+            conda install pip -y  # Ensure pip is available in the conda environment
             pip install -r requirements.txt
             echo "Python dependencies installed."
 
