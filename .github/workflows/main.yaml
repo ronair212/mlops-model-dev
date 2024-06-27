@@ -146,7 +146,7 @@ jobs:
 
 
 
-            #sklearn
+            #sklearnn
             # Explicitly install 'sklearn' package
             echo "Installing 'sklearn' package..."
             pip install sklearn
