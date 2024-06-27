@@ -157,6 +157,23 @@ jobs:
             python -c "import sklearn; print('sklearn installed successfully')"
             echo "'sklearn' package verified."
 
+
+
+
+            #mlflow
+            # Explicitly install 'mlflow' package
+            echo "Installing 'mlflow' package..."
+            pip install mlflow
+            echo "'mlflow' package installed."
+
+            # Verify 'mlflow' package installation
+            echo "Verifying 'mlflow' package installation..."
+            python -c "import mlflow; print('mlflow installed successfully')"
+            echo "'mlflow' package verified."
+
+
+
+
             # Export environment variables
             echo "Exporting environment variables..."
             export $(cat /home/ubuntu/.env | xargs)
