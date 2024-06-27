@@ -24,11 +24,19 @@ jobs:
           AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}
           AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+
+          
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+
         run: |
           echo "AWS_S3_OBJECT_NAME=${AWS_S3_OBJECT_NAME}" > .env
           echo "AWS_S3_BUCKET_NAME=${AWS_S3_BUCKET_NAME}" >> .env
           echo "AWS_SECRET_KEY=${AWS_SECRET_KEY}" >> .env
           echo "AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}" >> .env
+          echo "AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}" >> .env
+          echo "AWS_REGION=${AWS_REGION}" >> .env
           echo "MLFLOW_TRACKING_URI=https://dagshub.com/ronair212/mlops-model-dev.mlflow" >> .env
           echo "MLFLOW_TRACKING_USERNAME=ronair212" >> .env
           echo "MLFLOW_TRACKING_PASSWORD=mlopskhoury" >> .env
