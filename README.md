@@ -89,3 +89,8 @@ MLflow
 
 # ECR uri 
 654654149355.dkr.ecr.us-east-1.amazonaws.com/mlops-dev
+
+
+
+
+<img width="1049" alt="image" src="https://github.com/ronair212/mlops-model-dev/assets/20738263/a4d905b4-7cbf-4b47-a88f-48c9556f3682">
