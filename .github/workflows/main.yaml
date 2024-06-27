@@ -94,7 +94,17 @@ jobs:
             python -c "import ensure; print('ensure installed successfully')"
             echo "'ensure' package verified."
             
-            
+            #kaleido
+            # Explicitly install 'kaleido' package
+            echo "Installing 'kaleido' package..."
+            pip install kaleido
+            echo "'kaleido' package installed."
+
+            # Verify 'kaleido' package installation
+            echo "Verifying 'kaleido' package installation..."
+            python -c "import kaleido; print('kaleido installed successfully')"
+            echo "'kaleido' package verified."
+
             #gdown
             # Explicitly install 'gdown' package
             echo "Installing 'gdown' package..."
@@ -107,7 +117,7 @@ jobs:
             echo "'gdown' package verified."
 
 
-            #xgboost
+            #xgboostt
             # Explicitly install 'xgboost' package
             echo "Installing 'xgboost' package..."
             pip install --upgrade pip setuptools
