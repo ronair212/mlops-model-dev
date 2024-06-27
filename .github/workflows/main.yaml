@@ -121,7 +121,7 @@ jobs:
             # Explicitly install 'xgboost' package
             echo "Installing 'xgboost' package..."
             pip install --upgrade pip setuptools
-            pip install xgboost==1.6.0
+            pip install xgboost
             echo "'xgboost' package installed."
 
             # Verify 'xgboost' package installation
@@ -129,6 +129,17 @@ jobs:
             python -c "import xgboost; print('xgboost installed successfully')"
             echo "'xgboost' package verified."
 
+
+            #dagshub
+            # Explicitly install 'dagshub' package
+            echo "Installing 'dagshub' package..."
+            pip install dagshub
+            echo "'dagshub' package installed."
+
+            # Verify 'dagshub' package installation
+            echo "Verifying 'dagshub' package installation..."
+            python -c "import dagshub; print('dagshub installed successfully')"
+            echo "'dagshub' package verified."
 
             #pandas
             # Explicitly install 'pandas' package
