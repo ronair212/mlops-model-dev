@@ -119,6 +119,18 @@ jobs:
             echo "'xgboost' package verified."
 
 
+            #pandas
+            # Explicitly install 'pandas' package
+            echo "Installing 'pandas' package..."
+            pip install pandas
+            echo "'pandas' package installed."
+
+            # Verify 'pandas' package installation
+            echo "Verifying 'pandas' package installation..."
+            python -c "import pandas; print('pandas installed successfully')"
+            echo "'pandas' package verified."
+
+
 
             # Export environment variables
             echo "Exporting environment variables..."
@@ -127,7 +139,7 @@ jobs:
 
             # Run your Python script
             echo "Running main.py..."
-            /opt/miniconda/envs/fraud_env/bin/python /home/ubuntu/mlops-model-dev/main.py
+            PYTHONPATH=\$PYTHONPATH:/home/ubuntu/mlops-model-dev/src python main.py
             echo "Python script executed successfully."
           EOF
 
