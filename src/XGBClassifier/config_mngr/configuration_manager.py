@@ -17,8 +17,7 @@ class ConfigurationManager:
         self,
         config_filepath = CONFIG_FILE_PATH,
         params_filepath = PARAMS_FILE_PATH,
-        base_path = os.getenv('PYTHONPATH', '').split(':')[-1]
-        hyperopt_params_filepath = os.path.join(base_path, "hyperopt_params.yaml")
+        hyperopt_params_filepath = os.path.join(os.getenv('PYTHONPATH', '').split(':')[-1], "hyperopt_params.yaml")):
         self.config = read_yaml(config_filepath)
         self.params = read_yaml(params_filepath)
         self.hyperopt_params = read_yaml(Path(hyperopt_params_filepath))
