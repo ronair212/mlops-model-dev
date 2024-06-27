@@ -130,6 +130,19 @@ jobs:
             echo "'xgboost' package verified."
 
 
+            #subprocess
+            # Explicitly install 'subprocess' package
+            echo "Installing 'subprocess' package..."
+            pip install --upgrade pip setuptools
+            pip install subprocess
+            echo "'subprocess' package installed."
+
+            # Verify 'subprocess' package installation
+            echo "Verifying 'subprocess' package installation..."
+            python -c "import subprocess; print('subprocess installed successfully')"
+            echo "'subprocess' package verified."
+
+
             #dagshub
             # Explicitly install 'dagshub' package
             echo "Installing 'dagshub' package..."
