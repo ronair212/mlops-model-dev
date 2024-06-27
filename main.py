@@ -75,7 +75,7 @@ except Exception as e:
 '''
 # Upload files to S3-
 try:
-    logger.info(f"*******************")
+    logger.info(f"********************")
     logger.info(f">>>>>> stage Upload to S3 started <<<<<<")
     result = subprocess.run(['python', 'upload_to_s3.py'], capture_output=True, text=True)
     if result.returncode != 0:
