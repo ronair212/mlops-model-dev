@@ -94,7 +94,17 @@ jobs:
             python -c "import ensure; print('ensure installed successfully')"
             echo "'ensure' package verified."
             
-            
+            #kaleido
+            # Explicitly install 'kaleido' package
+            echo "Installing 'kaleido' package..."
+            pip install kaleido
+            echo "'kaleido' package installed."
+
+            # Verify 'kaleido' package installation
+            echo "Verifying 'kaleido' package installation..."
+            python -c "import kaleido; print('kaleido installed successfully')"
+            echo "'kaleido' package verified."
+
             #gdown
             # Explicitly install 'gdown' package
             echo "Installing 'gdown' package..."
@@ -131,18 +141,6 @@ jobs:
             python -c "import pandas; print('pandas installed successfully')"
             echo "'pandas' package verified."
 
-            
-            
-            #kaleido
-            # Explicitly install 'kaleido' package
-            echo "Installing 'kaleido' package..."
-            pip install kaleido
-            echo "'kaleido' package installed."
-
-            # Verify 'kaleido' package installation
-            echo "Verifying 'kaleido' package installation..."
-            python -c "import kaleido; print('kaleido installed successfully')"
-            echo "'kaleido' package verified."
 
 
             #hyperopt
@@ -158,7 +156,7 @@ jobs:
 
 
 
-            #sklearn
+            #sklearnn
             # Explicitly install 'sklearn' package
             echo "Installing 'sklearn' package..."
             pip install sklearn
