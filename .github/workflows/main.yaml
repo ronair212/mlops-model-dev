@@ -92,6 +92,22 @@ jobs:
             echo "Verifying 'ensure' package installation..."
             python -c "import ensure; print('ensure installed successfully')"
             echo "'ensure' package verified."
+            
+            
+            #gdown
+            # Explicitly install 'gdown' package
+            echo "Installing 'gdown' package..."
+            pip install gdown
+            echo "'gdown' package installed."
+
+            # Verify 'gdown' package installation
+            echo "Verifying 'gdown' package installation..."
+            python -c "import gdown; print('gdown installed successfully')"
+            echo "'gdown' package verified."
+
+
+
+
 
             # Export environment variables
             echo "Exporting environment variables..."
