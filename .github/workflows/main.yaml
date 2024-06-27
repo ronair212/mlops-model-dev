@@ -127,6 +127,9 @@ jobs:
 
             # Run your Python script
             echo "Running main.py..."
-            PYTHONPATH=\$PYTHONPATH:/home/ubuntu/mlops-model-dev/src python main.py
+            /opt/miniconda/envs/fraud_env/bin/python /home/ubuntu/mlops-model-dev/main.py
             echo "Python script executed successfully."
           EOF
+
+
+
