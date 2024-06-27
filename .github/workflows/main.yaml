@@ -131,17 +131,34 @@ jobs:
             echo "'pandas' package verified."
 
 
+            #sklearn
+            # Explicitly install 'sklearn' package
+            echo "Installing 'sklearn' package..."
+            pip install sklearn
+            echo "'sklearn' package installed."
+
+            # Verify 'sklearn' package installation
+            echo "Verifying 'sklearn' package installation..."
+            python -c "import sklearn; print('sklearn installed successfully')"
+            echo "'sklearn' package verified."
+
+
+
+
 
             # Export environment variables
             echo "Exporting environment variables..."
             export $(cat /home/ubuntu/.env | xargs)
             echo "Environment variables exported."
 
-            # Run your Python script
             echo "Running main.py..."
-            PYTHONPATH=\$PYTHONPATH:/home/ubuntu/mlops-model-dev/src python main.py
+            /opt/miniconda/envs/fraud_env/lib/python3.8 /home/ubuntu/mlops-model-dev/main.py
             echo "Python script executed successfully."
           EOF
+
+
+
+
 
 
 
