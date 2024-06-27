@@ -143,6 +143,19 @@ jobs:
             echo "'subprocess' package verified."
 
 
+            #boto3
+            # Explicitly install 'boto3' package
+            echo "Installing 'boto3' package..."
+            pip install --upgrade pip setuptools
+            pip install boto3
+            echo "'boto3' package installed."
+
+            # Verify 'boto3' package installation
+            echo "Verifying 'boto3' package installation..."
+            python -c "import boto3; print('boto3 installed successfully')"
+            echo "'boto3' package verified."
+
+
             #dagshub
             # Explicitly install 'dagshub' package
             echo "Installing 'dagshub' package..."
