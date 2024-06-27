@@ -1,0 +1,185 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - aws-s3
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up PEM file
+        run: |
+          echo "${{ secrets.EC2_SSH_KEY }}" > ec2_key.pem
+          chmod 600 ec2_key.pem
+
+      - name: Create .env file
+        env:
+          AWS_S3_OBJECT_NAME: ${{ secrets.AWS_S3_OBJECT_NAME }}
+          AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}
+          AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        run: |
+          echo "AWS_S3_OBJECT_NAME=${AWS_S3_OBJECT_NAME}" > .env
+          echo "AWS_S3_BUCKET_NAME=${AWS_S3_BUCKET_NAME}" >> .env
+          echo "AWS_SECRET_KEY=${AWS_SECRET_KEY}" >> .env
+          echo "AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}" >> .env
+          echo "MLFLOW_TRACKING_URI=https://dagshub.com/ronair212/mlops-model-dev.mlflow" >> .env
+          echo "MLFLOW_TRACKING_USERNAME=ronair212" >> .env
+          echo "MLFLOW_TRACKING_PASSWORD=mlopskhoury" >> .env
+          echo "PYTHONPATH=\$PYTHONPATH:/home/ubuntu/mlops-model-dev/src/" >> .env
+          cat .env
+
+      - name: Copy .env file to EC2
+        env:
+          EC2_USER: ubuntu
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+        run: |
+          scp -i ec2_key.pem -o StrictHostKeyChecking=no .env $EC2_USER@$EC2_HOST:/home/ubuntu/.env
+
+      - name: Deploy on EC2
+        env:
+          EC2_USER: ubuntu
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+        run: |
+          ssh -i ec2_key.pem -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST << EOF
+            #!/bin/bash
+            sudo su
+
+            # Install Miniconda
+            echo "Installing Miniconda..."
+            wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
+            bash miniconda.sh -b -p /opt/miniconda
+            rm miniconda.sh
+            export PATH=/opt/miniconda/bin:\$PATH
+            conda init
+            #source /root/.bashrc
+            echo "Miniconda installation completed."
+
+            # Clone the repository
+            cd /home/ubuntu
+            rm -rf /home/ubuntu/mlops-model-dev
+            echo "Cloning the mlops-model-dev repository..."
+            git clone https://github.com/ronair212/mlops-model-dev.git
+            echo "Repository cloned successfully."
+
+            # Navigate into the repository directory
+            cd /home/ubuntu/mlops-model-dev
+            echo "Navigated into the mlops-model-dev directory."
+
+            # Create and activate Conda environment
+            echo "Creating and activating Conda environment..."
+            conda create -n fraud_env python=3.8 -y
+            source /opt/miniconda/bin/activate fraud_env
+            echo "Conda environment 'fraud_env' created and activated."
+
+            # Install Python dependencies in Conda environment
+            echo "Installing Python dependencies..."
+            conda install pip -y  # Ensure pip is available in the conda environment
+            pip install -r requirements.txt
+            echo "Python dependencies installed."
+
+            # Explicitly install 'ensure' package
+            echo "Installing 'ensure' package..."
+            pip install ensure
+            echo "'ensure' package installed."
+
+            # Verify 'ensure' package installation
+            echo "Verifying 'ensure' package installation..."
+            python -c "import ensure; print('ensure installed successfully')"
+            echo "'ensure' package verified."
+            
+            
+            #gdown
+            # Explicitly install 'gdown' package
+            echo "Installing 'gdown' package..."
+            pip install gdown
+            echo "'gdown' package installed."
+
+            # Verify 'gdown' package installation
+            echo "Verifying 'gdown' package installation..."
+            python -c "import gdown; print('gdown installed successfully')"
+            echo "'gdown' package verified."
+
+
+            #xgboost
+            # Explicitly install 'xgboost' package
+            echo "Installing 'xgboost' package..."
+            pip install --upgrade pip setuptools
+            pip install xgboost==1.6.0
+            echo "'xgboost' package installed."
+
+            # Verify 'xgboost' package installation
+            echo "Verifying 'xgboost' package installation..."
+            python -c "import xgboost; print('xgboost installed successfully')"
+            echo "'xgboost' package verified."
+
+
+            #pandas
+            # Explicitly install 'pandas' package
+            echo "Installing 'pandas' package..."
+            pip install pandas
+            echo "'pandas' package installed."
+
+            # Verify 'pandas' package installation
+            echo "Verifying 'pandas' package installation..."
+            python -c "import pandas; print('pandas installed successfully')"
+            echo "'pandas' package verified."
+
+
+
+            #hyperopt
+            # Explicitly install 'hyperopt' package
+            echo "Installing 'hyperopt' package..."
+            pip install hyperopt
+            echo "'hyperopt' package installed."
+
+            # Verify 'hyperopt' package installation
+            echo "Verifying 'hyperopt' package installation..."
+            python -c "import hyperopt; print('hyperopt installed successfully')"
+            echo "'hyperopt' package verified."
+
+
+
+            #sklearn
+            # Explicitly install 'sklearn' package
+            echo "Installing 'sklearn' package..."
+            pip install sklearn
+            echo "'sklearn' package installed."
+
+            # Verify 'sklearn' package installation
+            echo "Verifying 'sklearn' package installation..."
+            python -c "import sklearn; print('sklearn installed successfully')"
+            echo "'sklearn' package verified."
+
+
+
+
+            #mlflow
+            # Explicitly install 'mlflow' package
+            echo "Installing 'mlflow' package..."
+            pip install mlflow
+            echo "'mlflow' package installed."
+
+            # Verify 'mlflow' package installation
+            echo "Verifying 'mlflow' package installation..."
+            python -c "import mlflow; print('mlflow installed successfully')"
+            echo "'mlflow' package verified."
+
+
+
+
+            # Export environment variables
+            echo "Exporting environment variables..."
+            export $(cat /home/ubuntu/.env | xargs)
+            echo "Environment variables exported."
+
+            echo "Running main.py..."
+            python /home/ubuntu/mlops-model-dev/main.py
+            echo "Python script executed successfully."
+          EOF

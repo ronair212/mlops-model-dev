@@ -1,7 +1,4 @@
-tensorflow
-pandas
 scikit-learn
-dvc
 notebook
 xgboost
 numpy
@@ -17,7 +14,7 @@ joblib
 types-PyYAML
 scipy
 mlflow
-Flask
-Flask-Cors
 gdown
+ensure
+hyperopt
 -e .

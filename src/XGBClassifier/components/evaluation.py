@@ -15,46 +15,52 @@ from XGBClassifier.utils.common import *
 from pathlib import Path
 import pandas as pd
 
+class EvaluationConfig:
+    def __init__(self, local_data_file, eval_results_folder, mlflow_results_folder, mlflow_uri, all_params):
+        self.local_data_file = local_data_file
+        self.eval_results_folder = eval_results_folder
+        self.mlflow_results_folder = mlflow_results_folder
+        self.mlflow_uri = mlflow_uri
+        self.all_params = all_params
+
 class Evaluation:
     def __init__(self, config: EvaluationConfig):
         self.config = config
 
     def train_valid_generator(self):
-        df = pd.read_csv(self.config.local_data_file,encoding='utf-8')
+        df = pd.read_csv(self.config.local_data_file, encoding='utf-8')
         features = df.columns.drop(['fraud'])
         target = 'fraud'
 
         X = df[features]
         y = df[target]
-        X_train , X_test ,y_train , y_test = train_test_split(X,y,test_size = 0.2 ,random_state =42 ,stratify=y)
-        return X_train , X_test ,y_train , y_test 
-        
-        
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+        return X_train, X_test, y_train, y_test
+
     def precision_recall_trade_off(self, model):
-    
         '''this function is to plot the precision-recall curve then
         printing the thresholds that achieves the highest recall'''
-        X_train , X_test ,y_train , y_test  = self.train_valid_generator()
+        X_train, X_test, y_train, y_test = self.train_valid_generator()
         y_proba = model.predict_proba(X_test)
-        precision ,recall ,threshold = precision_recall_curve(y_test,y_proba[:,1])
-        p_r_t = pd.DataFrame({'Threshold':threshold,'Precision':precision[:-1],'Recall':recall[:-1]})
+        precision, recall, threshold = precision_recall_curve(y_test, y_proba[:, 1])
+        p_r_t = pd.DataFrame({'Threshold': threshold, 'Precision': precision[:-1], 'Recall': recall[:-1]})
         fig = px.line(
             p_r_t,
             x='Recall',
             y='Precision',
             title='Precision-Recall Curve',
-            width=700,height=500,
+            width=700, height=500,
             hover_data=['Threshold']
         )
-        save_figure_with_timestamp(fig, prefix="precision_recall_curve")
+        save_figure_with_timestamp(fig, prefix="precision_recall_curve", save_path=self.config.eval_results_folder)
         prt = p_r_t[(p_r_t['Recall'] == 1)].tail(10)
 
-        logger.info(p_r_t[ (p_r_t['Recall']==1)].tail(10))
+        logger.info(p_r_t[(p_r_t['Recall'] == 1)].tail(10))
         prt_list = prt.to_dict(orient='records')
         prt_dict = {"data": prt_list}
-        save_json(path=Path("prt.json"), data=prt_dict)
-        
-    
+        path = Path(self.config.eval_results_folder) / "prt.json"  # Convert to Path object
+        save_json(path=path, data=prt_dict)
+
     def get_or_create_experiment_id(self, name):
         exp = mlflow.get_experiment_by_name(name)
         if exp is None:
@@ -92,11 +98,10 @@ class Evaluation:
         fig = px.line(metrics_df, x='Metric', y='Value', title='Evaluation Metrics')
 
         # Save the plot
-        save_figure_with_timestamp(fig, prefix="evaluation_metrics")
+        save_figure_with_timestamp(fig, prefix="evaluation_metrics", save_path=self.config.eval_results_folder)
 
         # Set up local MLflow tracking URI
-        local_mlflow_dir = 'mlruns'
-        mlflow.set_tracking_uri(local_mlflow_dir)
+        mlflow.set_tracking_uri(self.config.mlflow_results_folder)
 
         # Get or create an experiment
         experiment_id = self.get_or_create_experiment_id(experiment_name)
@@ -115,7 +120,6 @@ class Evaluation:
 
         # Log to DagsHub
         dagshub.init(repo_owner='ronair212', repo_name='mlops-model-dev', mlflow=True)
-        #mlflow.set_tracking_uri('https://dagshub.com/ronair212/mlops-model-dev.mlflow')
 
         with mlflow.start_run(experiment_id=experiment_id):
             # Log model parameters
@@ -129,30 +133,28 @@ class Evaluation:
             mlflow.log_metric("f1_score", f1)
 
         # Reset tracking URI to local after logging to DagsHub
-        mlflow.set_tracking_uri(local_mlflow_dir)
-        
-        
-    
+        mlflow.set_tracking_uri(self.config.mlflow_results_folder)
+
     def roc_auc(self, model):
-    
-        '''this function plots the roc-auc curve and calculate the model ROC-AUC score '''
-        X_train , X_test ,y_train , y_test  = self.train_valid_generator()
+        '''this function plots the roc-auc curve and calculate the model ROC-AUC score'''
+        X_train, X_test, y_train, y_test = self.train_valid_generator()
         y_proba = model.predict_proba(X_test)
-        fpr ,tpr ,threshold = roc_curve(y_test,y_proba[:,1])
-        fp_tp = pd.DataFrame({'Threshold':threshold,'FPR':fpr,'TPR':tpr})
+        fpr, tpr, threshold = roc_curve(y_test, y_proba[:, 1])
+        fp_tp = pd.DataFrame({'Threshold': threshold, 'FPR': fpr, 'TPR': tpr})
         fig = px.line(
             fp_tp,
             x='FPR',
             y='TPR',
             title='ROC Curve',
-            width=700,height=500,
+            width=700, height=500,
             hover_data=['Threshold']
         )
-        save_figure_with_timestamp(fig, prefix="roc-auc-curve")
-        roc_auc_scores = roc_auc_score(y_test,y_proba[:,1])
-        logger.info('Testing ROC-AUC Score: ',roc_auc_score(y_test,y_proba[:,1]))
-        #save_json(path=Path("roc_auc_scores.json"), data=roc_auc_scores)
-    
+        save_figure_with_timestamp(fig, prefix="roc-auc-curve", save_path=self.config.eval_results_folder)
+        roc_auc_scores = roc_auc_score(y_test, y_proba[:, 1])
+        logger.info('Testing ROC-AUC Score: ', roc_auc_score(y_test, y_proba[:, 1]))
+        path = Path(self.config.eval_results_folder) / "roc_auc_scores.json"  # Convert to Path object
+        save_json(path=path, data={"roc_auc_score": roc_auc_scores})
+
     def log_into_mlflow(self):
         mlflow.set_registry_uri(self.config.mlflow_uri)
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
@@ -164,11 +166,8 @@ class Evaluation:
             )
             # Model registry does not work with file store
             if tracking_url_type_store != "file":
-
-                # Register the model
-                # There are other ways to use the Model Registry, which depends on the use case,
-                # please refer to the doc for more information:
-                # https://mlflow.org/docs/latest/model-registry.html#api-workflow
                 mlflow.keras.log_model(self.model, "model", registered_model_name="VGG16Model")
             else:
                 mlflow.keras.log_model(self.model, "model")
+    
+    
