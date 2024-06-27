@@ -120,7 +120,7 @@ jobs:
             echo "'xgboost' package verified."
 
 
-            #pandass
+            #pandas
             # Explicitly install 'pandas' package
             echo "Installing 'pandas' package..."
             pip install pandas
