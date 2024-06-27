@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  mlops_service:
+    build:
+      context: .
+    image: mlops-prod
+    container_name: mlops-prod-container
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    command: python main.py

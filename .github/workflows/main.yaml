@@ -3,7 +3,7 @@ name: Deploy to EC2
 on:
   push:
     branches:
-      - aws-s3
+      - main
 
 jobs:
   deploy:
@@ -24,15 +24,18 @@ jobs:
           AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}
           AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          MLFLOW_TRACKING_URI: ${{ secrets.MLFLOW_TRACKING_URI }}
+          MLFLOW_TRACKING_USERNAME: ${{ secrets.MLFLOW_TRACKING_USERNAME }}
+          MLFLOW_TRACKING_PASSWORD: ${{ secrets.MLFLOW_TRACKING_PASSWORD }}
         run: |
           echo "AWS_S3_OBJECT_NAME=${AWS_S3_OBJECT_NAME}" > .env
           echo "AWS_S3_BUCKET_NAME=${AWS_S3_BUCKET_NAME}" >> .env
           echo "AWS_SECRET_KEY=${AWS_SECRET_KEY}" >> .env
           echo "AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}" >> .env
-          echo "MLFLOW_TRACKING_URI=https://dagshub.com/ronair212/mlops-model-dev.mlflow" >> .env
-          echo "MLFLOW_TRACKING_USERNAME=ronair212" >> .env
-          echo "MLFLOW_TRACKING_PASSWORD=mlopskhoury" >> .env
-          echo "PYTHONPATH=\$PYTHONPATH:/home/ubuntu/mlops-model-dev/src/" >> .env
+          echo "MLFLOW_TRACKING_URI=${MLFLOW_TRACKING_URI}" >> .env
+          echo "MLFLOW_TRACKING_USERNAME=${MLFLOW_TRACKING_USERNAME}" >> .env
+          echo "MLFLOW_TRACKING_PASSWORD=${MLFLOW_TRACKING_PASSWORD}" >> .env
+          echo "PYTHONPATH=\$PYTHONPATH:/app/src" >> .env
           cat .env
 
       - name: Copy .env file to EC2
@@ -40,7 +43,7 @@ jobs:
           EC2_USER: ubuntu
           EC2_HOST: ${{ secrets.EC2_HOST }}
         run: |
-          scp -i ec2_key.pem -o StrictHostKeyChecking=no .env $EC2_USER@$EC2_HOST:/home/ubuntu/.env
+          scp -i ec2_key.pem -o StrictHostKeyChecking=no .env $EC2_USER@$EC2_HOST:/home/ubuntu/mlops-model-dev/.env
 
       - name: Deploy on EC2
         env:
@@ -51,115 +54,33 @@ jobs:
             #!/bin/bash
             sudo su
 
-            # Install Miniconda
-            echo "Installing Miniconda..."
-            wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
-            bash miniconda.sh -b -p /opt/miniconda
-            rm miniconda.sh
-            export PATH=/opt/miniconda/bin:\$PATH
-            conda init
-            source /root/.bashrc
-            echo "Miniconda installation completed."
+            # Install Docker
+            cd /home/ubuntu
+            echo "Downloading Docker installation script..."
+            curl -fsSL https://get.docker.com -o get-docker.sh
+            echo "Running Docker installation script..."
+            sh get-docker.sh
+            echo "Docker installation completed."
+
+            # Install Docker Compose
+            echo "Downloading Docker Compose..."
+            sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-\$(uname -s)-\$(uname -m)" -o /usr/local/bin/docker-compose
+            echo "Setting executable permissions for Docker Compose..."
+            sudo chmod +x /usr/local/bin/docker-compose
+            echo "Docker Compose installation completed."
+            sudo docker system prune -f
 
             # Clone the repository
             cd /home/ubuntu
             rm -rf /home/ubuntu/mlops-model-dev
             echo "Cloning the mlops-model-dev repository..."
-            git clone https://github.com/ronair212/mlops-model-dev/tree/aws-s3.git
-            
+            git clone https://github.com/ronair212/mlops-model-dev.git
             echo "Repository cloned successfully."
 
             # Navigate into the repository directory
             cd /home/ubuntu/mlops-model-dev
             echo "Navigated into the mlops-model-dev directory."
 
-            # Create and activate Conda environment
-            echo "Creating and activating Conda environment..."
-            conda create -n fraud_env python=3.8 -y
-            source /opt/miniconda/bin/activate fraud_env
-            echo "Conda environment 'fraud_env' created and activated."
-
-            # Install Python dependencies in Conda environment
-            echo "Installing Python dependencies..."
-            conda install pip -y  # Ensure pip is available in the conda environment
-            pip install -r requirements.txt
-            echo "Python dependencies installed."
-
-            # Explicitly install 'ensure' package
-            echo "Installing 'ensure' package..."
-            pip install ensure
-            echo "'ensure' package installed."
-
-            # Verify 'ensure' package installation
-            echo "Verifying 'ensure' package installation..."
-            python -c "import ensure; print('ensure installed successfully')"
-            echo "'ensure' package verified."
-            
-            
-            #gdown
-            # Explicitly install 'gdown' package
-            echo "Installing 'gdown' package..."
-            pip install gdown
-            echo "'gdown' package installed."
-
-            # Verify 'gdown' package installation
-            echo "Verifying 'gdown' package installation..."
-            python -c "import gdown; print('gdown installed successfully')"
-            echo "'gdown' package verified."
-
-
-            #xgboost
-            # Explicitly install 'xgboost' package
-            echo "Installing 'xgboost' package..."
-            pip install xgboost
-            echo "'xgboost' package installed."
-
-            # Verify 'xgboost' package installation
-            echo "Verifying 'xgboost' package installation..."
-            python -c "import xgboost; print('xgboost installed successfully')"
-            echo "'xgboost' package verified."
-
-
-            #pandas
-            # Explicitly install 'pandas' package
-            echo "Installing 'pandas' package..."
-            pip install pandas
-            echo "'pandas' package installed."
-
-            # Verify 'pandas' package installation
-            echo "Verifying 'pandas' package installation..."
-            python -c "import pandas; print('pandas installed successfully')"
-            echo "'pandas' package verified."
-
-
-            #sklearn
-            # Explicitly install 'sklearn' package
-            echo "Installing 'sklearn' package..."
-            pip install sklearn
-            echo "'sklearn' package installed."
-
-            # Verify 'sklearn' package installation
-            echo "Verifying 'sklearn' package installation..."
-            python -c "import sklearn; print('sklearn installed successfully')"
-            echo "'sklearn' package verified."
-
-
-
-
-
-            # Export environment variables
-            echo "Exporting environment variables..."
-            export $(cat /home/ubuntu/.env | xargs)
-            echo "Environment variables exported."
-
-            echo "Running main.py..."
-            /opt/miniconda/envs/fraud_env/lib/python3.8 /home/ubuntu/mlops-model-dev/main.py
-            echo "Python script executed successfully."
+            # Start Docker Compose
+            sudo docker-compose up -d --build
           EOF
-
-
-
-
-
-
-
