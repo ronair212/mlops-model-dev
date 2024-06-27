@@ -45,7 +45,7 @@ except Exception as e:
 
 
 
-'''
+
 # Upload files to S3
 try:
     logger.info(f"********************")
@@ -60,6 +60,6 @@ try:
 except Exception as e:
     logger.exception(e)
     raise e
-'''
+
 
 
