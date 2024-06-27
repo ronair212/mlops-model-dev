@@ -173,6 +173,19 @@ jobs:
 
 
 
+            #kaleido
+            # Explicitly install 'kaleido' package
+            echo "Installing 'kaleido' package..."
+            pip install kaleido
+            echo "'kaleido' package installed."
+
+            # Verify 'kaleido' package installation
+            echo "Verifying 'kaleido' package installation..."
+            python -c "import kaleido; print('kaleido installed successfully')"
+            echo "'kaleido' package verified."
+
+
+
 
             # Export environment variables
             echo "Exporting environment variables..."
