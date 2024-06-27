@@ -65,7 +65,8 @@ jobs:
             cd /home/ubuntu
             rm -rf /home/ubuntu/mlops-model-dev
             echo "Cloning the mlops-model-dev repository..."
-            git clone https://github.com/ronair212/mlops-model-dev.git
+            git clone https://github.com/ronair212/mlops-model-dev/tree/aws-s3.git
+            
             echo "Repository cloned successfully."
 
             # Navigate into the repository directory
