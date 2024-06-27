@@ -16,4 +16,5 @@ scipy
 mlflow
 gdown
 ensure
+hyperopt
 -e .

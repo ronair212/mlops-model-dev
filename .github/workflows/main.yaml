@@ -132,6 +132,20 @@ jobs:
             echo "'pandas' package verified."
 
 
+
+            #hyperopt
+            # Explicitly install 'hyperopt' package
+            echo "Installing 'hyperopt' package..."
+            pip install hyperopt
+            echo "'hyperopt' package installed."
+
+            # Verify 'hyperopt' package installation
+            echo "Verifying 'hyperopt' package installation..."
+            python -c "import hyperopt; print('hyperopt installed successfully')"
+            echo "'hyperopt' package verified."
+
+
+
             #sklearn
             # Explicitly install 'sklearn' package
             echo "Installing 'sklearn' package..."
